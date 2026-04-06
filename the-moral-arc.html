@@ -2071,6 +2071,66 @@
     .ds-tax-label { font-family: var(--serif); font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-bottom: 0.35rem; }
     .ds-tax-body p { font-family: var(--sans); font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
     .ds-tax-body p em { color: rgba(255,255,255,0.7); font-style: italic; }
+
+    /* ── Voices Quote Strip ── */
+    .qs-wrap {
+      background: var(--black);
+      padding: 3rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .qs-label {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: #333;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .qs-track {
+      display: flex;
+      gap: 0;
+      width: max-content;
+      animation: qsScroll 90s linear infinite;
+      cursor: grab;
+    }
+    .qs-track:active { cursor: grabbing; animation-play-state: paused; }
+    .qs-track:hover { animation-play-state: paused; }
+    @keyframes qsScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .qs-item {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      padding: 0 4rem;
+      border-right: 1px solid #1a1a1a;
+      min-width: 380px;
+      max-width: 480px;
+      flex-shrink: 0;
+      transition: background 0.3s;
+    }
+    .qs-item:hover { background: rgba(255,255,255,0.02); }
+    .qs-text {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+      transition: color 0.3s;
+    }
+    .qs-item:hover .qs-text { color: rgba(255,255,255,0.82); }
+    .qs-attr {
+      font-family: var(--sans);
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #333;
+      transition: color 0.3s;
+    }
+    .qs-item:hover .qs-attr { color: #555; }
   </style>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
@@ -2109,6 +2169,118 @@
     An exploration of moral language in American politics — from Lincoln's guilt to the present's grievance.
   </p>
   <span class="scroll-hint">Begin</span>
+</div>
+
+<!-- VOICES QUOTE STRIP -->
+<div class="qs-wrap">
+  <div class="qs-label">Voices</div>
+  <div class="qs-track" id="qs-track">
+    <div class="qs-item">
+      <span class="qs-text">"Politics has gone from right and wrong to a battle between absolute good and absolute evil."</span>
+      <span class="qs-attr">— Micah Wolfensohn</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"Democracies are meant to be partisan. But there are moments when to rule and govern is to be able to look beyond that. And we're certainly incapable of doing that right now."</span>
+      <span class="qs-attr">— Mark Lilla, Columbia University</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"There used to be parameters."</span>
+      <span class="qs-attr">— Mr. Klebnikov</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"I think of a speech as that which would call upon our greater selves. We don't hear that at all."</span>
+      <span class="qs-attr">— Anonymous</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"The currency of a political speech is how it's going to get chopped up into a five-second tweet or video."</span>
+      <span class="qs-attr">— Mr. Pennoyer</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"The primary system incentivizes politicians becoming the loudest or the most charismatic. It's structural."</span>
+      <span class="qs-attr">— Elvin T. Lim, Singapore Management University</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"We may see it get worse before it gets better."</span>
+      <span class="qs-attr">— Mr. Klebnikov</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"Everything Obama said was imbued with a moral clarity and a keen intelligence, and an aspirational tone."</span>
+      <span class="qs-attr">— Anonymous</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"I think deep down we all want to be kind. A gentle politics feels like a needed voice, a needed kind of rhetoric that we haven't heard."</span>
+      <span class="qs-attr">— Mr. Pennoyer</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"There is power and legitimacy in democratic voice, but there is also danger — like the Reign of Terror in France."</span>
+      <span class="qs-attr">— Elvin T. Lim, Singapore Management University</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"The only thing you could do as a politician is not engage in personal attacks. But the public — it's exciting to them. It's like a WWF fight."</span>
+      <span class="qs-attr">— Mr. Klebnikov</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"He was amusing, actually. What he said was horrible, but people laughed. And they liked it."</span>
+      <span class="qs-attr">— Mr. Klebnikov</span>
+    </div>
+    <div class="qs-item">
+      <span class="qs-text">"I see political speech dying."</span>
+      <span class="qs-attr">— Anonymous</span>
+    </div>
+    <!-- Duplicate set for seamless loop -->
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"Politics has gone from right and wrong to a battle between absolute good and absolute evil."</span>
+      <span class="qs-attr">— Micah Wolfensohn</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"Democracies are meant to be partisan. But there are moments when to rule and govern is to be able to look beyond that. And we're certainly incapable of doing that right now."</span>
+      <span class="qs-attr">— Mark Lilla, Columbia University</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"There used to be parameters."</span>
+      <span class="qs-attr">— Mr. Klebnikov</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"I think of a speech as that which would call upon our greater selves. We don't hear that at all."</span>
+      <span class="qs-attr">— Anonymous</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"The currency of a political speech is how it's going to get chopped up into a five-second tweet or video."</span>
+      <span class="qs-attr">— Mr. Pennoyer</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"The primary system incentivizes politicians becoming the loudest or the most charismatic. It's structural."</span>
+      <span class="qs-attr">— Elvin T. Lim, Singapore Management University</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"We may see it get worse before it gets better."</span>
+      <span class="qs-attr">— Mr. Klebnikov</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"Everything Obama said was imbued with a moral clarity and a keen intelligence, and an aspirational tone."</span>
+      <span class="qs-attr">— Anonymous</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"I think deep down we all want to be kind. A gentle politics feels like a needed voice, a needed kind of rhetoric that we haven't heard."</span>
+      <span class="qs-attr">— Mr. Pennoyer</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"There is power and legitimacy in democratic voice, but there is also danger — like the Reign of Terror in France."</span>
+      <span class="qs-attr">— Elvin T. Lim, Singapore Management University</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"The only thing you could do as a politician is not engage in personal attacks. But the public — it's exciting to them. It's like a WWF fight."</span>
+      <span class="qs-attr">— Mr. Klebnikov</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"He was amusing, actually. What he said was horrible, but people laughed. And they liked it."</span>
+      <span class="qs-attr">— Mr. Klebnikov</span>
+    </div>
+    <div class="qs-item" aria-hidden="true">
+      <span class="qs-text">"I see political speech dying."</span>
+      <span class="qs-attr">— Anonymous</span>
+    </div>
+  </div>
 </div>
 
 <div class="rule"></div>
@@ -3237,69 +3409,94 @@
 <div class="inner">
   <p class="section-label">V. Voices</p>
   <h2>Interviews</h2>
-  <p style="max-width:680px;color:var(--gray);font-size:0.95rem;margin-bottom:0.5rem;">Four conversations conducted as primary research for this project — each approaching the question of moral language in political speech from a distinct vantage point. Mr. Lebnikov's interview is fully transcribed; the others include question guides and research notes prepared in advance.</p>
-  <p style="max-width:680px;color:var(--gray);font-size:0.85rem;margin-bottom:2.5rem;font-style:italic;">Methodology: semi-structured qualitative interviews, 30–60 minutes each, covering historical arc of political rhetoric, the role of emotional appeals, institutional consequences, and the possibility of recovery. All subjects were asked the same core questions; follow-ups were responsive to their expertise.</p>
+  <p style="max-width:680px;color:var(--gray);font-size:0.95rem;margin-bottom:0.5rem;">Eight conversations conducted as primary research — scholars, students, and anonymous voices, each approaching the question of moral language in political speech from a distinct vantage point.</p>
+  <p style="max-width:680px;color:var(--gray);font-size:0.85rem;margin-bottom:2.5rem;font-style:italic;">Methodology: semi-structured qualitative interviews, 20–60 minutes each, covering the historical arc of political rhetoric, the role of emotional appeals, institutional consequences, and the possibility of recovery.</p>
 
   <div class="people-list">
 
-    <!-- MICHA -->
+    <!-- MICAH WOLFENSOHN -->
     <div class="person-item" id="person-micha">
       <button class="person-trigger" onclick="togglePerson('person-micha')" aria-expanded="false">
         <div class="person-meta">
-          <p class="person-name">Micha</p>
-          <p class="person-role">Interview subject</p>
+          <p class="person-name">Micah Wolfensohn <span class="transcript-badge">Transcript</span></p>
+          <p class="person-role">Student — Political perspective</p>
         </div>
         <span class="person-arrow">+</span>
       </button>
       <div class="person-transcript">
-        <p class="transcript-section-head">Core Questions</p>
+        <p class="transcript-section-head">From the Interview</p>
 
         <div class="tq-item">
-          <p class="tq-q">1. How has the use of moral language in politics changed over time? What does that do?</p>
-        </div>
-        <div class="tq-item">
-          <p class="tq-q">2. How do leaders imagine their audiences, and how does that shape who feels included or excluded?</p>
-          <span class="stat-pill">Pew 2022 — 74% see discourse as more divisive</span>
-        </div>
-        <div class="tq-item">
-          <p class="tq-q">3. Can literature, history, or psychology help us anticipate the consequences of rhetoric, or guide us toward more constructive speech?</p>
+          <p class="tq-q">Has moral language in political speech changed?</p>
+          <p class="tq-note">"I'd say yes and no. I think there's always been some level of politicians using moral language and moral hyperbole and rhetoric to kind of rally up their base. I think that over time, it's become far more dangerous. Politics has gone from right and wrong to a battle between absolute good and absolute evil. And that applies to both sides of the political spectrum. I think through that, we've seen a lot more usage of this moralistic language and rhetoric, which is quite detrimental for our democracy in the long term."</p>
         </div>
 
-        <p class="transcript-section-head">Notes</p>
-        <p class="tq-note">Personal perspective — what does Micha see or feel in political speech today versus what they've been taught to value?</p>
+        <div class="tq-item">
+          <p class="tq-q">How about the almost theological style of speech — like Lincoln's grand narratives?</p>
+          <p class="tq-note">"It's kind of been reduced from something quite grandiose to almost like people saying it to check political boxes. Like they're saying it for the sake of saying it, not for the actual belief in it. Which is a shame because I think that stuff is really useful. I think it brings Americans together. It sets a vision for the country. But I think now when you just have politicians and talking heads on TV just saying like, oh, we're the greatest country in the world — which is a reductive take, to say the least — I think that creates this very saccharine feel to the country."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Why do you think that happened?</p>
+          <p class="tq-note">"I think social media is a big component of it. People want to say shit that can be seen in 15-second TikToks rather than say shit that is analyzed over the course of a multi-hour long speech. I think because of that, you can kind of still see the power of it, but that stuff is just more few and far between just by the virtue of the media ecosystem and landscape that we live in nowadays."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Do you think that broadly, appealing to the good in people and these lofty tones — has that become less attractive?</p>
+          <p class="tq-note">"I think it feels empty because there's no substance behind it. Politicians need to be able to give moralistic speeches, but they also need to have legitimate policy to back it up. If you aren't able to do both simultaneously — A, you're not a very good politician and B, you're doing a disservice not only to yourself, but also to your voters and to your constituents."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Do you think there are certain rhetorical styles that are used in dividing versus uniting speeches?</p>
+          <p class="tq-note">"I think it's the same rhetorical structure. You have a goal, you have strength, and you have something in your way. With a negative speech, the opposition becomes another group who is actively out to get you. Whereas with a uniting speech, the goal can simply be time or science or reality. I would compare Trump's convention speech, where it's like we want to make America great and the Democrats are terrorists — compared to JFK saying, we want to go to the moon, and we have limitations placed on us. It's the same structure, but the opposition is different."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Do you think the tide is shifting? Figures like Talarico, Zora Mamdani?</p>
+          <p class="tq-note">"I think the tide isn't shifting per se, but I think politicians are starting to realize that you can't get by on just saying America rah rah. The best politicians are the ones who are able to cut through that and actually say something real and connect with their voters."</p>
+        </div>
       </div>
     </div>
 
-    <!-- MR. ROOT -->
+    <!-- MR. PENNOYER -->
     <div class="person-item" id="person-root">
       <button class="person-trigger" onclick="togglePerson('person-root')" aria-expanded="false">
         <div class="person-meta">
-          <p class="person-name">Mr. Root</p>
-          <p class="person-role">Interview subject</p>
+          <p class="person-name">Mr. Pennoyer <span class="transcript-badge">Transcript</span></p>
+          <p class="person-role">Educator — History &amp; Rhetoric</p>
         </div>
         <span class="person-arrow">+</span>
       </button>
       <div class="person-transcript">
-        <p class="transcript-section-head">Core Questions</p>
+        <p class="transcript-section-head">From the Interview</p>
 
         <div class="tq-item">
-          <p class="tq-q">1. Small choices — pronouns, repetition, framing crises — can have big effects on group behavior. What patterns do you notice over time, and how does literature illuminate these dynamics?</p>
-          <p class="tq-note">Literary tie-in: Orwell, <em>1984</em> — "War is peace. Freedom is slavery. Ignorance is strength."</p>
-        </div>
-        <div class="tq-item">
-          <p class="tq-q">2. Appeals to fear, hope, or anger shape how people act and judge. What ripple effects emerge from these appeals, and are there literary or historical examples that help us understand them?</p>
-          <span class="stat-pill">UPenn 2019 — anger posts get 34% more engagement</span>
-        </div>
-        <div class="tq-item">
-          <p class="tq-q">3. When moral rhetoric is used strategically — to inspire, manipulate, or divide — what patterns and consequences do you see for society, civic behavior, or moral perception?</p>
-          <p class="tq-note">Literary tie-in: Camus, <em>The Plague</em> — individuals' moral choices under collective stress.</p>
-        </div>
-        <div class="tq-item">
-          <p class="tq-q">4. Can literature, history, or psychology help us anticipate the consequences of rhetoric, or guide us toward more constructive speech?</p>
+          <p class="tq-q">How has moral language in politics changed over time?</p>
+          <p class="tq-note">"I wouldn't say that there's a single evolution, but in any given moment, you have multiple different voices whose tone and language, imagery, tenor, whose certainty, whose charity towards the opponents, differ tremendously. Take Lincoln saying, 'With malice toward none, with charity for all.' Then track that towards some contemporary politicians — 'if you didn't vote for me, I'm going to seek retribution. You're my enemy.' That arc would tell the arc in terms of regression — less charity, less kindness, less openness, more certainty."</p>
         </div>
 
-        <p class="transcript-section-head">Literary Touchstones to Reference</p>
-        <p class="tq-note"><em>1984</em> (Orwell) · <em>The Crucible</em> (Miller) · <em>Julius Caesar</em> (Shakespeare) · <em>The Plague</em> (Camus) · <em>The Fire Next Time</em> (Baldwin)</p>
+        <div class="tq-item">
+          <p class="tq-q">How has the medium changed political speech?</p>
+          <p class="tq-note">"The currency of a political speech is how it's going to get chopped up into a five-second tweet or video. Versus at some point, the elevated rhetoric of a long, book-length talk that was going to be read. Even at a political convention where someone is saying lots and lots of words, it's still going to get boiled down to Michelle Obama saying 'when they go low, we go high.' And that's what's going to live."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">What about the shift in religious language and shared biblical literacy?</p>
+          <p class="tq-note">"When you look at Dr. King, his speeches assume a certain knowledge of the Bible that today wouldn't be assumed. Most Americans don't have a whole bunch of scripture in their head. And King would have assumed yes, they would. So that's an element of a shift. And what I wouldn't want to say is that even in this hyperpolarized time — that in of itself is not novel for the country. Charles Sumner was an abolitionist senator from Massachusetts who, while on the floor of the Senate, was attacked by Preston Brooks with a gold-handled cane."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Do you think James Talarico represents a change — a liberal Christianity steeped in scripture?</p>
+          <p class="tq-note">"It's really interesting to see Talarico offering a liberal Christianity that's steeped in the language of the Bible. I once had dinner with Hillary Clinton's speechwriters, and one of the questions I asked them was, 'Don't you all use the Bible?' It seemed surprising to me to cede this central text to your opponent. I think deep down we all want to be kind. A gentle politics feels like a needed voice, a needed kind of rhetoric that we haven't heard."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Is there a shift from speeches to the whole country versus more specific speeches?</p>
+          <p class="tq-note">"The most profound speeches — Lincoln's Second Inaugural, King's 'I Have a Dream' — were addressed to everyone. They were universal in their aspiration even when rooted in specific crises. What's shifted is the assumption of that universality. Today, targeting is the strategy. You speak to your people, not the country."</p>
+        </div>
+
+        <p class="transcript-section-head">Literary Touchstones Referenced</p>
+        <p class="tq-note"><em>Reinhold Niebuhr</em> (Obama's intellectual touchstone) · Lincoln's Second Inaugural · King's sermonic tradition · James Talarico as contemporary case study</p>
       </div>
     </div>
 
@@ -3489,6 +3686,138 @@
         </div>
         <div class="tq-item">
           <p class="tq-q">5. Can literature, history, or psychology help us anticipate the consequences of rhetoric, or guide us toward more constructive speech?</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- MARK LILLA -->
+    <div class="person-item" id="person-lilla">
+      <button class="person-trigger" onclick="togglePerson('person-lilla')" aria-expanded="false">
+        <div class="person-meta">
+          <p class="person-name">Mark Lilla <span class="transcript-badge">Transcript</span></p>
+          <p class="person-role">Columbia University — Political Philosophy</p>
+        </div>
+        <span class="person-arrow">+</span>
+      </button>
+      <div class="person-transcript">
+        <p class="transcript-section-head">From the Interview</p>
+
+        <div class="tq-item">
+          <p class="tq-q">How do you think about Lincoln's theological rhetoric in the context of your argument in <em>The Stillborn God</em>?</p>
+          <p class="tq-note">"One of the distinctions I make is between a regime whose legitimacy depends on a revelation, versus a regime whose legitimacy is established on something else — which can still appeal to religion when making arguments about policies, values, and so on. I would put Lincoln in the latter category — he appeals to a kind of theology, a sense of history, that the world is moving in a certain direction under divine guidance. But that doesn't legitimize the government. What legitimizes it, in Lincoln's view, is the Declaration of Independence and the Constitution."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">In Lincoln's Second Inaugural, when he talks about national guilt — do you see that civic speech as something that's lacking from the present?</p>
+          <p class="tq-note">"There's both a sense of statesmanship and of detachment. He's able to step back, to take almost God's point of view, and see everything that had happened as part of a tragedy of the human condition. You could point to some of Kennedy's speeches as setting out a common, nonpartisan goal for the nation. Democracies are meant to be partisan — parties offering conflicting views. But there are moments when to rule and govern is to be able to look beyond that. And we're certainly incapable of doing that right now."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Do you think Lincoln is a reactionary?</p>
+          <p class="tq-note">"What makes a reactionary is not whether a person feels that things are going downhill at any moment. It's really a question of action. A reactionary is someone who wants to either stop history and run it backwards, or wants to leap ahead of the present and create a new reality that echoes the deep past. I can't see Lincoln in either of those pictures."</p>
+        </div>
+
+        <p class="transcript-section-head">Key Works</p>
+        <p class="tq-note"><em>The Stillborn God</em> (2007) · <em>The Reckless Mind</em> (2001) · <em>The Once and Future Liberal</em> (2017)</p>
+      </div>
+    </div>
+
+    <!-- ELVIN T. LIM -->
+    <div class="person-item" id="person-lim">
+      <button class="person-trigger" onclick="togglePerson('person-lim')" aria-expanded="false">
+        <div class="person-meta">
+          <p class="person-name">Elvin T. Lim <span class="transcript-badge">Transcript</span></p>
+          <p class="person-role">Singapore Management University — Political Science</p>
+        </div>
+        <span class="person-arrow">+</span>
+      </button>
+      <div class="person-transcript">
+        <p class="transcript-section-head">From the Interview</p>
+
+        <div class="tq-item">
+          <p class="tq-q">Do you think anti-intellectualism in political speech is uniquely American?</p>
+          <p class="tq-note">"I don't think it's uniquely American for cultural reasons, but it may be uniquely American for specific institutional reasons. The Americans have the primary system, which incentivizes politicians becoming the loudest or the most charismatic — being the more likely ones to get the vote because nobody turns up for the primaries. So you have to be really intense and provoke the outliers to come out. In a parliamentary system, on the other hand, there aren't primaries, so it's always the general electorate, and you always have to speak to the median voter. Primaries are distinctly American. But it's not the culture per se — it's structural."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Can the problem of demagoguery happen in any democratic system?</p>
+          <p class="tq-note">"Absolutely. If you broaden it to a very wide lens, emotional appeals are going to tug a lot more than logos appeals. The media knows this — always run a human interest story, always run a TikTok where people get personal. I think one of the reasons the original framers created three branches and interbranch deliberation was so that deliberation would not happen directly between senators and the people — filtering out the need for demagogic appeals. What Socrates did, if Plato's account is correct, was a way to show that this isn't working — we need a system where the people aren't just allowed to run amok. There is power and legitimacy in democratic voice, but there is also danger — like the Reign of Terror in France. How do we balance the emotional appeals that come naturally with demagoguery and the need for rational discourse? That's why institutions are so important."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">How do you see the tension between Ciceronian theatrical rhetoric and Stoic logical speech in a democracy?</p>
+          <p class="tq-note">"Part of it is looking at the context. The reason Cicero and various great Roman orators had to go the way they did was because they didn't have sound amplification or television. So they had to have emotional amplification, storyline amplification, narrative amplification. The other point is — yes, there are times when logos is necessary and times when pathos is necessary. But the question is: what appeals are appropriate to the context? In a State of the Union address, it should be policy-oriented. For the inaugural address, some drama is fine. We need to think about the purpose of the speech."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Did the loss of an intermediary layer — journalists, public intellectuals — matter?</p>
+          <p class="tq-note">"There's a kind of parallel interbranch deliberation happening in the 19th century — where it's elite-on-elite action, and the virtue is that each elite speaks on behalf of their constituents. The titans can take on each other. Pure demagoguery is maximally effective when you can speak directly to the people, bypassing all these institutional filters. The moment you lose those intermediaries, the emotional appeal has a more direct path."</p>
+        </div>
+
+        <p class="transcript-section-head">Key Works</p>
+        <p class="tq-note"><em>The Anti-Intellectual Presidency</em> (2008) — traces the systematic simplification of American presidential rhetoric over two centuries through vocabulary, syntax, and argument complexity.</p>
+      </div>
+    </div>
+
+    <!-- ANONYMOUS — IPA 1 -->
+    <div class="person-item" id="person-ipa1">
+      <button class="person-trigger" onclick="togglePerson('person-ipa1')" aria-expanded="false">
+        <div class="person-meta">
+          <p class="person-name">Anonymous — IPA 1 <span class="transcript-badge">Transcript</span></p>
+          <p class="person-role">General public — on political speech today</p>
+        </div>
+        <span class="person-arrow">+</span>
+      </button>
+      <div class="person-transcript">
+        <p class="transcript-section-head">From the Interview</p>
+
+        <div class="tq-item">
+          <p class="tq-q">How often do you consume political speeches?</p>
+          <p class="tq-note">"Political content, daily, but speeches almost seem to be a thing of the past. I don't consider what I would hear from any political leadership right now to be in the realm of speech."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Why not?</p>
+          <p class="tq-note">"I think of a speech as an attempt to articulate an argument with some going to some length, but we don't find that in the political discourse right now. We just find quick sound bites or interviews that are intentionally in a rushed and condensed environment. I don't hear much in the way of political speech — especially if it's defined as that which would call upon our greater selves. We don't hear that at all."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Is that the result of social media?</p>
+          <p class="tq-note">"I think that must have some influence on it, but I think there must be other factors too, including the fact that there's just no one holding the national stage right now who seems to be capable of really thoughtful political speech."</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- ANONYMOUS — IPA 2 -->
+    <div class="person-item" id="person-ipa2">
+      <button class="person-trigger" onclick="togglePerson('person-ipa2')" aria-expanded="false">
+        <div class="person-meta">
+          <p class="person-name">Anonymous — IPA 2 <span class="transcript-badge">Transcript</span></p>
+          <p class="person-role">General public — on Obama, Trump, and the attention economy</p>
+        </div>
+        <span class="person-arrow">+</span>
+      </button>
+      <div class="person-transcript">
+        <p class="transcript-section-head">From the Interview</p>
+
+        <div class="tq-item">
+          <p class="tq-q">How often do you consume political speeches?</p>
+          <p class="tq-note">"Almost never. The height of my political speech consumption ended in 2016. I loved listening to Obama speak, and I can't stand the sound of Trump's voice."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">Why was Obama a highlight for you?</p>
+          <p class="tq-note">"Everything he said was imbued with a moral clarity and a keen intelligence, and an inspirational sort of tone and aspirational tone."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">What patterns do you notice about modern political speech?</p>
+          <p class="tq-note">"In order to rake in views, usually the speech is pretty radical. I don't think the overall speech is necessarily that crazy, but the parts that people look at — the clipable parts, the parts that go viral — those are the radical parts. And I think it makes the speaker more mindful about what they say."</p>
+        </div>
+
+        <div class="tq-item">
+          <p class="tq-q">When you look at the future of political speech, what do you see?</p>
+          <p class="tq-note">"I see it dying."</p>
         </div>
       </div>
     </div>
@@ -6270,6 +6599,25 @@
       bar.style.width = Math.min(100, pct) + '%';
     }
     window.addEventListener('scroll', update, { passive: true });
+  })();
+
+  /* ── Quote strip drag-to-scroll ── */
+  (function() {
+    var track = document.getElementById('qs-track');
+    if (!track) return;
+    var isDown = false, startX, scrollLeft;
+    track.addEventListener('mousedown', function(e) {
+      isDown = true;
+      startX = e.pageX - track.offsetLeft;
+      scrollLeft = track.scrollLeft;
+    });
+    window.addEventListener('mouseup', function() { isDown = false; });
+    track.addEventListener('mousemove', function(e) {
+      if (!isDown) return;
+      e.preventDefault();
+      var x = e.pageX - track.offsetLeft;
+      track.scrollLeft = scrollLeft - (x - startX) * 1.5;
+    });
   })();
 
   /* ══════════════════════════════════════════
