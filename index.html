@@ -2238,11 +2238,145 @@
     .ds-tax-label { font-family: var(--serif); font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-bottom: 0.35rem; }
     .ds-tax-body p { font-family: var(--sans); font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
     .ds-tax-body p em { color: rgba(255,255,255,0.7); font-style: italic; }
+
+    /* ── Scroll progress bar ── */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: var(--black); z-index: 500;
+      transition: width 0.08s linear;
+    }
+
+    /* ── Reveal on scroll ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.75s cubic-bezier(0.22,0.61,0.36,1), transform 0.75s cubic-bezier(0.22,0.61,0.36,1);
+    }
+    .reveal.revealed { opacity: 1; transform: translateY(0); }
+    .reveal:nth-child(2) { transition-delay: 0.08s; }
+    .reveal:nth-child(3) { transition-delay: 0.15s; }
+    .reveal:nth-child(4) { transition-delay: 0.22s; }
+
+    /* ── Hero word animation ── */
+    .hero-word {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s cubic-bezier(0.22,0.61,0.36,1);
+    }
+    .hero-word.w-in { opacity: 1; transform: translateY(0); }
+
+    /* ── Scrolling quotes strip ── */
+    .qs-wrap {
+      background: var(--black);
+      overflow: hidden;
+      padding: 2.8rem 0;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .qs-track {
+      display: flex;
+      width: max-content;
+      animation: qsScroll 100s linear infinite;
+      gap: 5rem;
+      align-items: center;
+    }
+    .qs-track:hover { animation-play-state: paused; }
+    @keyframes qsScroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .qs-item {
+      font-family: var(--serif);
+      font-style: italic;
+      color: rgba(255,255,255,0.5);
+      font-size: 1rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .qs-attr {
+      font-family: var(--sans);
+      font-size: 0.6rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.22);
+      margin-left: 1.2rem;
+      font-style: normal;
+    }
+    .qs-sep {
+      color: rgba(255,255,255,0.1);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      flex-shrink: 0;
+    }
+
+    /* ── ds-hi highlights — dramatically more visible ── */
+    .ds-hi {
+      background: color-mix(in srgb, var(--dc) 18%, transparent);
+      border-bottom: 2px solid color-mix(in srgb, var(--dc) 75%, transparent);
+      color: color-mix(in srgb, var(--dc) 95%, #e8e8e4);
+      cursor: pointer;
+      padding: 0.06em 0.22em;
+      border-radius: 3px;
+      transition: background 0.22s ease, box-shadow 0.22s ease, color 0.2s ease;
+      position: relative;
+    }
+    .ds-hi:hover {
+      background: color-mix(in srgb, var(--dc) 32%, transparent);
+      box-shadow: 0 2px 14px color-mix(in srgb, var(--dc) 28%, transparent);
+      color: #fff;
+    }
+    .ds-hi:hover::after {
+      content: attr(data-tip);
+      position: absolute;
+      bottom: calc(100% + 10px);
+      left: 0; right: 0;
+      background: #1a1a1a;
+      border: 1px solid rgba(255,255,255,0.15);
+      border-left: 3px solid var(--dc);
+      color: rgba(255,255,255,0.85);
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      line-height: 1.55;
+      padding: 0.8rem 0.9rem;
+      z-index: 100;
+      min-width: 280px;
+      max-width: 440px;
+      pointer-events: none;
+      white-space: normal;
+      box-shadow: 0 10px 36px rgba(0,0,0,0.55);
+    }
+
+    /* ── Micro-interactions ── */
+    .learn-more-btn:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(255,255,255,0.06); }
+    .canon-card { transition: background 0.2s, transform 0.2s, box-shadow 0.2s; }
+    .canon-card:not(.canon-flip):hover { transform: translateY(-2px); box-shadow: 0 6px 24px rgba(0,0,0,0.08); }
+    blockquote { transition: border-color 0.3s, transform 0.3s; }
+    blockquote:hover { border-color: var(--black); transform: translateX(4px); }
+    .theme-card { transition: background 0.2s, transform 0.2s; }
+    .theme-card:hover { transform: translateY(-2px); }
+    .iv-status { transition: color 0.2s; }
+    .interview-card { transition: box-shadow 0.25s, border-color 0.25s; }
+    .interview-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+    /* ── Nav active state ── */
+    nav ul a.nav-active { color: var(--black); }
+
+    /* ── Squircle card photo backgrounds ── */
+    .sq-photo-bg {
+      position: absolute;
+      inset: 0;
+      border-radius: 28px;
+      opacity: 0.18;
+      background-size: cover;
+      background-position: center top;
+    }
   </style>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
+<div id="scroll-progress"></div>
 <nav>
   <a class="logo" href="#hero">The Moral Arc</a>
   <ul>
@@ -2271,6 +2405,60 @@
     An exploration of moral language in American politics, from Lincoln's guilt to the present's grievance.
   </p>
   <span class="scroll-hint">Begin</span>
+</div>
+
+<!-- ── Scrolling Quotes Strip ── -->
+<div class="qs-wrap" aria-hidden="true">
+  <div class="qs-track">
+    <span class="qs-item">"Politics has gone from right and wrong to a battle between absolute good and absolute evil."<span class="qs-attr">— Micah Wolfensohn</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"People want to say things that can be seen in 15-second TikToks — not analyzed over the course of a multi-hour speech."<span class="qs-attr">— Micah Wolfensohn</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"With malice toward none, with charity for all, let us do right as God gives us the right."<span class="qs-attr">— Lincoln, Second Inaugural — quoted by Mr. Pennoyer</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"The primary system incentivizes politicians to be the loudest or most charismatic."<span class="qs-attr">— Elvin Lim</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Modern rhetoric has not drifted from Cicero — it has become more Ciceronian."<span class="qs-attr">— Benjamin Straumann</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Counter-prophecy opens up rather than closes down — it disrupts rather than mobilizes through fear."<span class="qs-attr">— George Shulman</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Churchill's speeches were not universally admired in real time. The legend was partly constructed after the fact."<span class="qs-attr">— Richard Toye</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Lincoln's Second Inaugural is structurally anti-populist — he refused triumphalist rhetoric when he could have claimed it."<span class="qs-attr">— Nadia Urbinati</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"The very heart of conservatism is small republics, small communities — they help each other without needing an ideology of civic consciousness."<span class="qs-attr">— Elvin Lim</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Crisis produced the theory — Cicero had to turn implicit constitutionalism into explicit theory under pressure."<span class="qs-attr">— Benjamin Straumann</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Natural law in Lincoln may be co-terminous with the Declaration of Independence — the sacred text of American civil religion."<span class="qs-attr">— Elvin Lim</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"If you just have shallow rhetoric — America rah rah — it creates a very saccharine feel with no real substance."<span class="qs-attr">— Micah Wolfensohn</span></span>
+    <!-- Duplicate set for seamless loop -->
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Politics has gone from right and wrong to a battle between absolute good and absolute evil."<span class="qs-attr">— Micah Wolfensohn</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"People want to say things that can be seen in 15-second TikToks — not analyzed over the course of a multi-hour speech."<span class="qs-attr">— Micah Wolfensohn</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"With malice toward none, with charity for all, let us do right as God gives us the right."<span class="qs-attr">— Lincoln, Second Inaugural — quoted by Mr. Pennoyer</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"The primary system incentivizes politicians to be the loudest or most charismatic."<span class="qs-attr">— Elvin Lim</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Modern rhetoric has not drifted from Cicero — it has become more Ciceronian."<span class="qs-attr">— Benjamin Straumann</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Counter-prophecy opens up rather than closes down — it disrupts rather than mobilizes through fear."<span class="qs-attr">— George Shulman</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Churchill's speeches were not universally admired in real time. The legend was partly constructed after the fact."<span class="qs-attr">— Richard Toye</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Lincoln's Second Inaugural is structurally anti-populist — he refused triumphalist rhetoric when he could have claimed it."<span class="qs-attr">— Nadia Urbinati</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"The very heart of conservatism is small republics, small communities — they help each other without needing an ideology of civic consciousness."<span class="qs-attr">— Elvin Lim</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Crisis produced the theory — Cicero had to turn implicit constitutionalism into explicit theory under pressure."<span class="qs-attr">— Benjamin Straumann</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"Natural law in Lincoln may be co-terminous with the Declaration of Independence — the sacred text of American civil religion."<span class="qs-attr">— Elvin Lim</span></span>
+    <span class="qs-sep">&middot;&middot;&middot;</span>
+    <span class="qs-item">"If you just have shallow rhetoric — America rah rah — it creates a very saccharine feel with no real substance."<span class="qs-attr">— Micah Wolfensohn</span></span>
+  </div>
 </div>
 
 <div class="rule"></div>
@@ -2319,7 +2507,7 @@
     <div class="preview-card" style="cursor:default;">
       <p class="preview-card-label">The Jury System</p>
       <h3>Class Tension and Democratic Speech</h3>
-      <p>[ADD CONTENT: How Athenian jury composition shaped rhetorical norms and class dynamics in speech.]</p>
+      <p>Athenian juries of 500 citizens, selected by lot, created an extraordinary reversal: wealthy elites had to persuade ordinary people who could condemn them to death. Rhetoric was born from this class tension — the demand to make your case to people who had every reason to distrust you.</p>
     </div>
     <div class="preview-card" style="cursor:default;">
       <p class="preview-card-label">The Trial of Socrates</p>
@@ -2329,7 +2517,7 @@
     <div class="preview-card" style="cursor:default;">
       <p class="preview-card-label">Aristotle's Rhetoric</p>
       <h3>Ethos, Pathos, Logos</h3>
-      <p>[ADD CONTENT: Aristotle's three modes of persuasion and why their balance matters for democratic life.]</p>
+      <p>Aristotle codified three modes of persuasion: <em>ethos</em> (the speaker's character and credibility), <em>pathos</em> (emotional appeal), and <em>logos</em> (reasoned argument). He saw them as inseparable. A speaker who appeals only to emotion manipulates; one who argues only in logic fails to reach. Democratic speech requires all three.</p>
     </div>
   </div>
 </section>
@@ -2355,7 +2543,7 @@
     <div class="preview-card" style="cursor:default;">
       <p class="preview-card-label">The Unresolved Tension</p>
       <h3>Which Tradition Won?</h3>
-      <p>[ADD CONTENT: How democratic institutions shaped which style of speech survived, and what that means for modern political rhetoric.]</p>
+      <p>Neither. Democratic institutions tend to reward Cicero — performance, narrative, emotional climax — because they require mass persuasion. But the Stoic demand persists as a standard: we sense when speech is hollow, when style has consumed substance. Every great political address is a negotiation between the two traditions.</p>
     </div>
   </div>
 </section>
@@ -2889,7 +3077,7 @@
     </div>
 
     <div class="interview-card">
-      <p class="iv-status confirmed">Confirmed &mdash; April 6, 2026</p>
+      <p class="iv-status confirmed">Confirmed &mdash; April 7, 2026 &middot; 7:00 PM ET</p>
       <p class="iv-name">George Shulman</p>
       <p class="iv-role">NYU Gallatin School of Individualized Study<br>Professor Emeritus, Political Theory</p>
       <div class="iv-expertise">
@@ -2902,7 +3090,7 @@
     </div>
 
     <div class="interview-card">
-      <p class="iv-status confirmed">Confirmed &mdash; April 3, 2026</p>
+      <p class="iv-status pending">Missed &mdash; Rescheduling</p>
       <p class="iv-name">Daniel Kapust</p>
       <p class="iv-role">University of Wisconsin&ndash;Madison, Department of Political Science<br>Judith Hicks Stiehm Professor of Political Theory</p>
       <div class="iv-expertise">
@@ -2925,6 +3113,19 @@
       </div>
       <p class="iv-summary">One of the world's leading Cicero scholars, Benjamin Straumann argues that Cicero, not Aristotle, is the true ancestor of modern constitutionalism and natural rights. In his email responses, he contends that modern rhetoric has not drifted from Cicero but become MORE Ciceronian: what has changed is not the use of invective but the disappearance of the shared civic framework that once contained invective within reasoned argument.</p>
       <div class="iv-placeholder">[Written responses received. Full exchange to be published.]</div>
+    </div>
+
+    <div class="interview-card">
+      <p class="iv-status confirmed">Confirmed &mdash; April 8, 2026 &middot; 3:30 PM ET</p>
+      <p class="iv-name">Rob Goodman</p>
+      <p class="iv-role">Toronto Metropolitan University<br>Scholar of Rhetoric and Eloquence</p>
+      <div class="iv-expertise">
+        <span class="iv-tag">History of Oratory</span>
+        <span class="iv-tag">Rhetoric</span>
+        <span class="iv-tag">Political Speech</span>
+      </div>
+      <p class="iv-summary">Rob Goodman is a scholar of rhetoric, eloquence, and the history of political speech at Toronto Metropolitan University. Confirmed for a Zoom conversation on April 8. His work examines what distinguishes great political speech from merely competent speech — a question at the center of this project. He responded warmly to the project's outreach, calling it "really interesting."</p>
+      <div class="iv-placeholder">[Interview scheduled for April 8. Transcript to follow.]</div>
     </div>
 
     <div class="interview-card">
@@ -3160,7 +3361,7 @@
 
       <!-- Response aggregation (live as responses come in) -->
       <div class="fb-responses-block">
-        <div class="data-chart-label" style="margin-top:3rem;">Reader Responses — Poll Results</div>
+        <div class="data-chart-label" style="margin-top:3rem;">Reader Responses</div>
         <div class="fb-poll-bars" id="fb-poll-bars">
           <div class="fb-bar-row">
             <div class="fb-bar-label">Declined</div>
@@ -3201,7 +3402,7 @@
     <div class="preview-card" style="cursor:default;">
       <p class="preview-card-label">AI and Rhetoric</p>
       <h3>Machine-Generated Persuasion</h3>
-      <p>[ADD CONTENT: How large language models are changing who can produce polished political speech, and at what scale.]</p>
+      <p>Large language models can now produce polished, emotionally calibrated political speech at scale. This democratizes eloquence — but at what cost? When anyone can generate a perfect speech, the signal value of rhetorical craft collapses. Authenticity becomes the last scarce resource, and authenticity is precisely what can be faked most convincingly.</p>
     </div>
     <div class="preview-card" style="cursor:default;">
       <p class="preview-card-label">The Attention Economy</p>
@@ -3211,7 +3412,7 @@
     <div class="preview-card" style="cursor:default;">
       <p class="preview-card-label">An Open Question</p>
       <h3>What Remains?</h3>
-      <p>[ADD CONTENT: Whether anything structurally unique to human speech endures in an age of perfect synthetic rhetoric.]</p>
+      <p>Perhaps what endures is not the speech itself but the moment of speaking — the vulnerability of a real person committing, in public, to a position. King in Memphis. Lincoln at the second inaugural. The risk is irreducible. A machine can simulate courage. It cannot take a risk. Whether that distinction survives contact with a sufficiently indifferent public remains to be seen.</p>
     </div>
   </div>
 </section>
@@ -3385,7 +3586,7 @@
       <div class="squircle-inner">
         <div class="squircle-front">
           <span class="sq-initials">DK</span>
-          <p class="sq-status">Interview Confirmed</p>
+          <p class="sq-status">Rescheduling</p>
           <p class="sq-name">Daniel Kapust</p>
           <p class="sq-role">University of Wisconsin&ndash;Madison &middot; Political Theory</p>
           <p class="sq-summary">Expert on Roman republican political thought, rhetoric, and demagoguery. Works on Cicero and Sallust, and the conditions under which rhetorical norms hold or collapse under pressure.</p>
@@ -3428,6 +3629,30 @@
             <p>The Second Inaugural is structurally anti-populist. Lincoln had triumphalist rhetoric available and refused it: no named enemies, distributed guilt, invoked God not the people's will. A populist in 1865 would have spoken very differently.</p>
             <h4>Key Books</h4>
             <p><em>Me the People</em> (2019), <em>Democracy Disfigured</em> (2014), <em>The Lottocratic Mentality</em> (2025)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="squircle-card" onclick="this.classList.toggle('flipped')">
+      <div class="squircle-inner">
+        <div class="squircle-front">
+          <span class="sq-initials">RG</span>
+          <p class="sq-status">Interview Confirmed — April 8</p>
+          <p class="sq-name">Rob Goodman</p>
+          <p class="sq-role">Toronto Metropolitan University &middot; Rhetoric &amp; Political Speech</p>
+          <p class="sq-summary">Scholar of rhetoric, eloquence, and the history of political speech. Confirmed for a Zoom conversation on April 8, 2026. Called the project "really interesting." His focus: what makes political speech not merely persuasive but worth remembering.</p>
+          <p class="sq-tap-hint">Tap to learn more</p>
+        </div>
+        <div class="squircle-back">
+          <p class="sq-back-name">Rob Goodman &mdash; Toronto Metropolitan University</p>
+          <div class="sq-back-body">
+            <h4>Area of Expertise</h4>
+            <p>Rhetoric, Eloquence, History of Political Speech</p>
+            <h4>Status</h4>
+            <p>Interview confirmed for Wednesday April 8, 3:30 PM ET. Zoom call arranged at his request.</p>
+            <h4>Why This Interview Matters</h4>
+            <p>Goodman's scholarly focus on the history and practice of eloquence — what distinguishes memorable political speech from mere competent speech — speaks directly to the central question of this project. His warm response to the outreach suggests he sees the project as genuinely worthwhile.</p>
           </div>
         </div>
       </div>
@@ -3902,23 +4127,28 @@
         var g = svgEl.append('g')
           .attr('transform', 'translate(' + W/2 + ',' + H/2 + ')');
 
-        g.selectAll('text')
+        /* Wind-blown entrance: words drift in from one side */
+        var windDir = (Math.random() > 0.5) ? 1 : -1;
+
+        var texts = g.selectAll('text')
           .data(placed)
           .enter().append('text')
             .style('font-family', '"Georgia", serif')
-            .style('font-size', '0px')
+            .style('font-size', function(d) { return d.size + 'px'; })
             .style('fill', WC_WORD_COLOR)
             .style('opacity', 0)
             .style('cursor', 'pointer')
             .attr('text-anchor', 'middle')
             .attr('transform', function(d) {
-              return 'translate(' + [d.x, d.y] + ')';
+              var offX = windDir * (W * 0.65 + Math.random() * W * 0.45);
+              var offY = (Math.random() - 0.5) * H * 0.7;
+              return 'translate(' + [d.x + offX, d.y + offY] + ')rotate(' + (d.rotate || 0) + ')';
             })
-            .text(function(d) { return d.text; })
-            .on('mouseover', function(event, d) {
+            .text(function(d) { return d.text; });
+
+        texts.on('mouseover', function(event, d) {
               if (d.text !== _wcSelectedWord)
                 d3.select(this).style('fill', WC_HOVER_COLOR);
-              /* Show freq tooltip */
               var tip = document.getElementById('wc-hover-tip');
               tip.textContent = d.text + ' — ' + d.freq.toFixed(1) + ' per 1,000 words';
               tip.style.opacity = 1;
@@ -3929,19 +4159,20 @@
               document.getElementById('wc-hover-tip').style.opacity = 0;
             })
             .on('click', function(event, d) {
-              /* Reset all */
               g.selectAll('text').style('fill', WC_WORD_COLOR).style('opacity', 1);
-              /* Highlight selected */
               d3.select(this).style('fill', WC_HOVER_COLOR);
               _wcSelectedWord = d.text;
               wcShowTrend(d.text);
-            })
-            .transition()
-              .delay(function(d, i) { return i * 14; })
-              .duration(380)
+            });
+
+        texts.transition()
+              .delay(function(d, i) { return 80 + i * 26 + Math.random() * 70; })
+              .duration(function() { return 550 + Math.random() * 450; })
               .ease(d3.easeCubicOut)
-              .style('font-size', function(d) { return d.size + 'px'; })
-              .style('opacity', 1);
+              .attr('transform', function(d) {
+                return 'translate(' + [d.x, d.y] + ')rotate(' + (d.rotate || 0) + ')';
+              })
+              .style('opacity', function(d, i) { return 0.5 + (1 - i / placed.length) * 0.5; });
 
         /* Legend: size scale reference */
         wcUpdateLegend(placed, maxFreq);
@@ -4876,6 +5107,121 @@
     el.classList.toggle('open', !isOpen);
     btn.textContent = isOpen ? 'Read Transcript ↓' : 'Collapse Transcript ↑';
   }
+
+  /* ══════════════════════════════════════════
+     SCROLL PROGRESS BAR
+  ══════════════════════════════════════════ */
+  (function() {
+    var prog = document.getElementById('scroll-progress');
+    window.addEventListener('scroll', function() {
+      var scrolled = window.scrollY;
+      var maxScroll = document.body.scrollHeight - window.innerHeight;
+      prog.style.width = (maxScroll > 0 ? (scrolled / maxScroll) * 100 : 0) + '%';
+    }, { passive: true });
+  })();
+
+  /* ══════════════════════════════════════════
+     HERO — word-by-word assembly animation
+  ══════════════════════════════════════════ */
+  (function() {
+    var h1 = document.querySelector('#hero h1');
+    if (!h1) return;
+    var words = h1.textContent.trim().split(/\s+/);
+    h1.innerHTML = words.map(function(w) {
+      return '<span class="hero-word">' + w + '</span>';
+    }).join(' ');
+    document.querySelectorAll('#hero .hero-word').forEach(function(span, i) {
+      setTimeout(function() { span.classList.add('w-in'); }, 180 + i * 140);
+    });
+    /* Also animate subtitle */
+    var sub = document.querySelector('#hero .hero-sub');
+    if (sub) {
+      sub.style.opacity = '0';
+      sub.style.transform = 'translateY(16px)';
+      sub.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+      setTimeout(function() {
+        sub.style.opacity = '1';
+        sub.style.transform = 'translateY(0)';
+      }, 800);
+    }
+  })();
+
+  /* ══════════════════════════════════════════
+     REVEAL ON SCROLL — IntersectionObserver
+  ══════════════════════════════════════════ */
+  (function() {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -50px 0px' });
+
+    var selectors = [
+      '#essay p', '#argument .arg-body p',
+      '.preview-card', '.interview-card',
+      '.data-stat-card', '.squircle-card',
+      '.theme-card', '.res-item',
+      '#origins p, #two-styles p, #future p',
+      'section > h2', 'section > p',
+      '.data-discourse-card'
+    ];
+
+    selectors.forEach(function(sel) {
+      document.querySelectorAll(sel).forEach(function(el) {
+        if (!el.closest('#hero')) {
+          el.classList.add('reveal');
+          obs.observe(el);
+        }
+      });
+    });
+  })();
+
+  /* ══════════════════════════════════════════
+     NAV — active section highlight
+  ══════════════════════════════════════════ */
+  (function() {
+    var navLinks = document.querySelectorAll('nav ul a');
+    var sections = [];
+    navLinks.forEach(function(a) {
+      var id = a.getAttribute('href').replace('#', '');
+      var sec = document.getElementById(id);
+      if (sec) sections.push({ id: id, el: sec, a: a });
+    });
+    window.addEventListener('scroll', function() {
+      var mid = window.scrollY + window.innerHeight * 0.4;
+      sections.forEach(function(s) {
+        var top = s.el.offsetTop;
+        var bot = top + s.el.offsetHeight;
+        s.a.classList.toggle('nav-active', mid >= top && mid < bot);
+      });
+    }, { passive: true });
+  })();
+
+  /* ══════════════════════════════════════════
+     IMAGE FALLBACKS — SVG placeholder
+  ══════════════════════════════════════════ */
+  (function() {
+    function svgFallback(img) {
+      if (img.dataset.fbDone) return;
+      img.dataset.fbDone = '1';
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">' +
+        '<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">' +
+        '<stop offset="0%" stop-color="#1a1a1a"/><stop offset="100%" stop-color="#0a0a0a"/>' +
+        '</linearGradient></defs>' +
+        '<rect width="400" height="300" fill="url(#g)"/>' +
+        '<text x="200" y="155" text-anchor="middle" font-family="Georgia,serif" font-size="11" ' +
+        'fill="rgba(255,255,255,0.2)" letter-spacing="4">IMAGE PENDING</text>' +
+        '</svg>';
+      img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
+    }
+    document.querySelectorAll('img').forEach(function(img) {
+      img.addEventListener('error', function() { svgFallback(this); });
+      if (img.complete && img.naturalWidth === 0) svgFallback(img);
+    });
+  })();
 
 </script>
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
