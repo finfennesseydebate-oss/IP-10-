@@ -2396,9 +2396,14 @@
       position: absolute;
       inset: 0;
       border-radius: 28px;
-      opacity: 0.18;
+      opacity: 0.35;
       background-size: cover;
       background-position: center top;
+      filter: grayscale(40%) contrast(1.1);
+      transition: opacity 0.5s;
+    }
+    .squircle-card:hover .sq-photo-bg {
+      opacity: 0.5;
     }
   </style>
 
@@ -3589,6 +3594,7 @@
     <div class="squircle-card" onclick="this.classList.toggle('flipped')">
       <div class="squircle-inner">
         <div class="squircle-front">
+          <div class="sq-photo-bg" style="background-image:url('elvin_lim.jpg')"></div>
           <span class="sq-initials">EL</span>
           <p class="sq-status">Interview Completed</p>
           <p class="sq-name">Elvin Lim</p>
@@ -3615,6 +3621,7 @@
     <div class="squircle-card" onclick="this.classList.toggle('flipped')">
       <div class="squircle-inner">
         <div class="squircle-front">
+          <div class="sq-photo-bg" style="background-image:url('mark_lilla.jpg')"></div>
           <span class="sq-initials">ML</span>
           <p class="sq-status">Interview Completed</p>
           <p class="sq-name">Mark Lilla</p>
@@ -3641,6 +3648,7 @@
     <div class="squircle-card" onclick="this.classList.toggle('flipped')">
       <div class="squircle-inner">
         <div class="squircle-front">
+          <div class="sq-photo-bg" style="background-image:url('harold_holzer.jpg')"></div>
           <span class="sq-initials">HH</span>
           <p class="sq-status">Interview Pending</p>
           <p class="sq-name">Harold Holzer</p>
@@ -3667,6 +3675,7 @@
     <div class="squircle-card" onclick="this.classList.toggle('flipped')">
       <div class="squircle-inner">
         <div class="squircle-front">
+          <div class="sq-photo-bg" style="background-image:url('george_shulman.jpg')"></div>
           <span class="sq-initials">GS</span>
           <p class="sq-status">Interview Confirmed</p>
           <p class="sq-name">George Shulman</p>
@@ -3717,6 +3726,7 @@
     <div class="squircle-card" onclick="this.classList.toggle('flipped')">
       <div class="squircle-inner">
         <div class="squircle-front">
+          <div class="sq-photo-bg" style="background-image:url('richard_toye.jpg')"></div>
           <span class="sq-initials">RT</span>
           <p class="sq-status">Interview Confirmed</p>
           <p class="sq-name">Richard Toye</p>
