@@ -193,10 +193,10 @@
       margin: 0 auto;
     }
 
-    #speech .section-label { color: #555; }
-    #speech .section-label::after { background: #333; }
+    #speech .section-label { color: #777; }
+    #speech .section-label::after { background: #444; }
     #speech h2 { color: var(--white); }
-    #speech p { color: #aaa; }
+    #speech p { color: #ccc; }
 
     .video-wrap {
       position: relative;
@@ -1925,7 +1925,7 @@
     .ds-fact { display: flex; flex-direction: column; min-width: 160px; max-width: 220px; }
     .ds-fact-n { font-family: "Courier New", monospace; font-size: 1.8rem; color: rgba(255,255,255,0.7); line-height: 1; margin-bottom: 0.3rem; }
     .ds-fact-l { font-family: var(--sans); font-size: 0.68rem; color: rgba(255,255,255,0.35); line-height: 1.4; }
-    .ds-stage-context p { color: rgba(255,255,255,0.55); font-size: 0.9rem; max-width: 700px; margin-bottom: 0.75rem; line-height: 1.7; }
+    .ds-stage-context p { color: rgba(255,255,255,0.75); font-size: 0.9rem; max-width: 700px; margin-bottom: 0.75rem; line-height: 1.7; }
 
     /* ── Text block ── */
     .ds-text-block { margin-bottom: 3rem; }
@@ -1953,7 +1953,7 @@
     .ds-speech { background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); padding: 2rem; }
     .ds-para {
       font-family: var(--serif); font-size: 0.95rem; line-height: 1.85;
-      color: rgba(255,255,255,0.7); margin-bottom: 1.25rem; position: relative;
+      color: rgba(255,255,255,0.88); margin-bottom: 1.25rem; position: relative;
     }
     .ds-para:last-child { margin-bottom: 0; }
     .ds-pn {
@@ -2150,8 +2150,8 @@
       letter-spacing: 0.1em; text-transform: uppercase;
       color: rgba(255,255,255,0.2); margin-bottom: 0.5rem;
     }
-    .ds-text { font-family: var(--serif); font-size: 1rem; color: rgba(255,255,255,0.8); line-height: 1.7; display: block; margin-bottom: 0.75rem; font-style: italic; }
-    .ds-annotation { font-family: var(--sans); font-size: 0.77rem; color: rgba(255,255,255,0.42); line-height: 1.7; }
+    .ds-text { font-family: var(--serif); font-size: 1rem; color: rgba(255,255,255,0.92); line-height: 1.7; display: block; margin-bottom: 0.75rem; font-style: italic; }
+    .ds-annotation { font-family: var(--sans); font-size: 0.77rem; color: rgba(255,255,255,0.65); line-height: 1.7; }
     .ds-annotation em { color: rgba(255,255,255,0.65); font-style: italic; }
     .ds-annotation strong { color: rgba(255,255,255,0.65); }
 
@@ -2162,10 +2162,10 @@
     .ds-arc-dot { width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0; }
 
     /* ══ DATA SECTION ══ */
-    .data-section { background: #f7f6f3; }
-    .data-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1px; background: #ddd; margin-bottom: 3rem; }
-    .data-stat-card { background: #fff; padding: 1.75rem 1.5rem; }
-    .data-stat-num { font-family: var(--serif); font-size: 2.8rem; color: #0d0d0d; line-height: 1; margin-bottom: 0.1rem; }
+    .data-section { background: #fafaf8; }
+    .data-stats-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 1px; background: var(--light); margin-bottom: 3rem; }
+    .data-stat-card { background: #fff; padding: 1.75rem 1.5rem; border-bottom: 2px solid var(--light); }
+    .data-stat-num { font-family: var(--serif); font-size: 2.8rem; color: var(--black); line-height: 1; margin-bottom: 0.1rem; }
     .data-stat-num-sub { font-family: var(--sans); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gray); margin-bottom: 0.5rem; }
     .data-stat-label { font-family: var(--sans); font-size: 0.78rem; color: #444; line-height: 1.5; margin-bottom: 0.75rem; }
     .data-stat-label em { font-style: italic; color: #0d0d0d; }
@@ -2238,6 +2238,35 @@
     .ds-tax-label { font-family: var(--serif); font-size: 0.88rem; color: rgba(255,255,255,0.7); margin-bottom: 0.35rem; }
     .ds-tax-body p { font-family: var(--sans); font-size: 0.78rem; color: rgba(255,255,255,0.45); line-height: 1.6; }
     .ds-tax-body p em { color: rgba(255,255,255,0.7); font-style: italic; }
+
+    /* ── Content attribution markers ── */
+    .source-author {
+      position: relative;
+    }
+    .source-author::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--black);
+      opacity: 0.15;
+    }
+    .source-research {
+      position: relative;
+    }
+    .source-research::before {
+      content: '';
+      position: absolute;
+      left: -1rem;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--gray);
+      opacity: 0.1;
+      border-left: 1px dashed rgba(0,0,0,0.08);
+    }
 
     /* ── Scroll progress bar ── */
     #scroll-progress {
@@ -2388,6 +2417,7 @@
     <li><a href="#dissections">Dissections</a></li>
     <li><a href="#interviews">Interviews</a></li>
     <li><a href="#data">Data</a></li>
+    <li><a href="#voices">Voices</a></li>
     <li><a href="#resources">Resources</a></li>
     <li><a href="#graphics">Development</a></li>
     <li><a href="#reflection">Reflection</a></li>
@@ -2401,8 +2431,7 @@
   <p class="eyebrow">An Exploration of Political Rhetoric</p>
   <h1>The Moral Arc</h1>
   <p class="hero-sub">
-    How the scale of our speech shapes the scale of our world.
-    An exploration of moral language in American politics, from Lincoln's guilt to the present's grievance.
+    An exploration of American and international political speech, from the ancient Greeks to modern day.
   </p>
   <span class="scroll-hint">Begin</span>
 </div>
@@ -2466,7 +2495,7 @@
 
 <section id="arc-overview">
   <p class="section-label">The Arc</p>
-  <h2>From Athens to the Algorithm</h2>
+  <h2>From the Origins of Oratory to Modern Persuasion</h2>
   <p>Oratory did not begin with Lincoln. The questions we ask today, about what makes speech legitimate, persuasive, or dangerous, were first asked in Athenian courts and Roman forums. This project traces that arc.</p>
   <div class="preview-grid">
     <a class="preview-card" href="#origins">
@@ -2744,10 +2773,123 @@
 <section id="dissections">
   <p class="section-label">Speech Dissections</p>
   <h2>Three Speeches, Opened Up</h2>
-  <p>Close readings of Lincoln's Second Inaugural, King's "I've Been to the Mountaintop," and one contemporary address, annotated for rhetorical technique, moral frame, and structural choices.</p>
-  <div class="placeholder-block" style="margin-top:3rem;">
-    <p>[CONTENT COMING SOON &mdash; Speech dissections and concept maps will be added here.]</p>
+  <p style="color:rgba(255,255,255,0.6);max-width:680px;">Close readings of Lincoln's Second Inaugural, King's "I've Been to the Mountaintop," and Cicero's First Catilinarian, annotated for rhetorical technique, moral frame, and structural choices.</p>
+
+  <!-- Speech tabs -->
+  <div class="ds-tabs">
+    <button class="ds-tab active" onclick="switchDissection('lincoln-2nd')">
+      <span class="ds-tab-year">March 4, 1865</span>
+      <span class="ds-tab-name">Lincoln's Second Inaugural</span>
+      <span class="ds-tab-sub">701 words</span>
+    </button>
+    <button class="ds-tab ds-tab-mlk" onclick="switchDissection('mlk-mount')">
+      <span class="ds-tab-year">April 3, 1968</span>
+      <span class="ds-tab-name">I've Been to the Mountaintop</span>
+      <span class="ds-tab-sub">King &middot; Memphis</span>
+    </button>
+    <button class="ds-tab" onclick="switchDissection('cicero-cat')">
+      <span class="ds-tab-year">63 BC</span>
+      <span class="ds-tab-name">First Catilinarian</span>
+      <span class="ds-tab-sub">Cicero &middot; Roman Senate</span>
+    </button>
   </div>
+
+  <!-- Lincoln panel -->
+  <div class="ds-panel active" id="ds-lincoln-2nd">
+    <div class="ds-stage">
+      <p class="ds-stage-date">March 4, 1865 &middot; Washington, D.C.</p>
+      <p class="ds-stage-title">Lincoln's Second Inaugural Address</p>
+      <div class="ds-stage-facts">
+        <div class="ds-fact"><span class="ds-fact-n">701</span><span class="ds-fact-l">words&mdash;one of the shortest inaugurals in American history</span></div>
+        <div class="ds-fact"><span class="ds-fact-n">4</span><span class="ds-fact-l">years of civil war behind him; the Union has essentially won</span></div>
+        <div class="ds-fact"><span class="ds-fact-n">41</span><span class="ds-fact-l">days until his assassination</span></div>
+      </div>
+      <div class="ds-stage-context">
+        <p>Lincoln does not deliver a victory speech. He refuses the rhetoric available to a wartime president who has won. Instead he distributes guilt equally between North and South, invokes divine judgment on the entire nation for the sin of slavery, and closes with one of the most extraordinary acts of rhetorical restraint in the English language: "With malice toward none, with charity for all."</p>
+      </div>
+    </div>
+
+    <div class="ds-text-block">
+      <p class="ds-line-marker">Lines 1&ndash;4</p>
+      <span class="ds-text">"Both read the same Bible and pray to the same God, and each invokes His aid against the other."</span>
+      <p class="ds-annotation">Lincoln refuses the fundamental rhetorical move of wartime speech: naming an enemy. Both sides are implicated. Both sides claim God. The symmetry is the argument&mdash;neither side can claim moral purity.</p>
+    </div>
+
+    <div class="ds-text-block">
+      <p class="ds-line-marker">Lines 5&ndash;8</p>
+      <span class="ds-text">"Fondly do we hope, fervently do we pray, that this mighty scourge of war may speedily pass away. Yet, if God wills that it continue until all the wealth piled by the bondsman's two hundred and fifty years of unrequited toil shall be sunk, and until every drop of blood drawn with the lash shall be paid by another drawn with the sword, as was said three thousand years ago, so still it must be said 'the judgments of the Lord are true and righteous altogether.'"</span>
+      <p class="ds-annotation">The theological weight is enormous. Lincoln frames the Civil War as divine punishment for slavery&mdash;not the South's sin alone, but the nation's. The rhetorical move is almost unprecedented: a victorious president attributing the war's suffering to his own side's complicity. This is not politics. This is something closer to prophecy.</p>
+    </div>
+
+    <div class="ds-text-block">
+      <p class="ds-line-marker">Closing</p>
+      <span class="ds-text">"With malice toward none, with charity for all, with firmness in the right as God gives us to see the right, let us strive on to finish the work we are in, to bind up the nation's wounds."</span>
+      <p class="ds-annotation">"As God gives us to see the right"&mdash;not "as we know the right." Lincoln qualifies his own moral certainty even in the moment of triumph. The humility is structural, not decorative. It is the rhetorical foundation for reconciliation rather than vengeance.</p>
+    </div>
+  </div>
+
+  <!-- MLK panel -->
+  <div class="ds-panel" id="ds-mlk-mount">
+    <div class="ds-stage">
+      <p class="ds-stage-date">April 3, 1968 &middot; Mason Temple, Memphis</p>
+      <p class="ds-stage-title">"I've Been to the Mountaintop"</p>
+      <div class="ds-stage-facts">
+        <div class="ds-fact"><span class="ds-fact-n">43</span><span class="ds-fact-l">minutes&mdash;delivered during a thunderstorm</span></div>
+        <div class="ds-fact"><span class="ds-fact-n">1</span><span class="ds-fact-l">day before his assassination</span></div>
+      </div>
+      <div class="ds-stage-context">
+        <p>King is in Memphis supporting striking sanitation workers. He is exhausted, frightened, and he knows he may die. He almost didn't come to the temple that night. What he delivers is not a polished oration&mdash;it is a man undone and held together by something larger than himself.</p>
+      </div>
+    </div>
+
+    <div class="ds-text-block">
+      <p class="ds-line-marker">The Good Samaritan</p>
+      <span class="ds-text">"The question is not, 'If I stop to help this man, what will happen to me?' The question is, 'If I do not stop to help the sanitation workers, what will happen to them?'"</span>
+      <p class="ds-annotation">King reframes the parable. The Jericho Road question is inverted from self-preservation to moral obligation. This is the pivot from personal safety to collective duty&mdash;the same move Lincoln makes in the Second Inaugural, but placed in the mouth of a man who knows the personal cost.</p>
+    </div>
+
+    <div class="ds-text-block">
+      <p class="ds-line-marker">The Close</p>
+      <span class="ds-text">"I've seen the Promised Land. I may not get there with you. But I want you to know tonight, that we, as a people, will get to the Promised Land."</span>
+      <p class="ds-annotation">He is telling them he is going to die. Not as a cry for sympathy&mdash;as a fact, as a gift. The biblical typology (Moses on Mount Nebo, seeing Canaan but not entering) places his death inside a frame large enough to hold it. The vulnerability is the argument.</p>
+    </div>
+  </div>
+
+  <!-- Cicero panel -->
+  <div class="ds-panel" id="ds-cicero-cat">
+    <div class="ds-stage">
+      <p class="ds-stage-date">November 8, 63 BC &middot; Temple of Jupiter Stator, Rome</p>
+      <p class="ds-stage-title">In Catilinam I &mdash; First Catilinarian</p>
+      <div class="ds-stage-facts">
+        <div class="ds-fact"><span class="ds-fact-n">63 BC</span><span class="ds-fact-l">Cicero is consul; Catiline has conspired to overthrow the Republic</span></div>
+      </div>
+      <div class="ds-stage-context">
+        <p>Cicero addresses the Senate with Catiline sitting among them. The opening&mdash;<em>Quo usque tandem abutere, Catilina, patientia nostra?</em> ("How long, Catiline, will you abuse our patience?")&mdash;is perhaps the most famous opening line in the history of oratory. Cicero is performing outrage, but the performance is calculated: every emotional escalation serves a strategic purpose.</p>
+      </div>
+    </div>
+
+    <div class="ds-text-block">
+      <p class="ds-line-marker">Opening</p>
+      <span class="ds-text">"Quo usque tandem abutere, Catilina, patientia nostra?"</span>
+      <p class="ds-annotation">The direct address to the enemy sitting in the room. Cicero speaks <em>at</em> Catiline but <em>to</em> the Senate. The rhetorical triangle is explicit: the audience is the real target, and the invective against Catiline is designed to make the senators feel complicit if they do not act. This is invective as political strategy, not mere anger.</p>
+    </div>
+
+    <div class="ds-text-block">
+      <p class="ds-line-marker">The constitutional claim</p>
+      <span class="ds-text">"The Senate has passed a decree&mdash;a decree that should have been your death sentence. And yet you live. You live, not to abandon your audacity, but to strengthen it."</span>
+      <p class="ds-annotation">Cicero grounds his emotional appeal in legal authority. The invective is not free-floating outrage; it is anchored in constitutional process. This is Straumann's point: Cicero's invective operated within a shared civic framework that gave it meaning. When that framework disappears, invective becomes untethered.</p>
+    </div>
+  </div>
+
+  <script>
+  function switchDissection(id) {
+    document.querySelectorAll('.ds-panel').forEach(function(p) { p.classList.remove('active'); });
+    document.querySelectorAll('.ds-tab').forEach(function(t) { t.classList.remove('active'); });
+    var panel = document.getElementById('ds-' + id);
+    if (panel) panel.classList.add('active');
+    event.currentTarget.classList.add('active');
+  }
+  </script>
 </section>
 
 <div class="rule"></div>
@@ -3001,7 +3143,7 @@
 <section id="interviews">
   <p class="section-label">Interviews</p>
   <h2>Expert Conversations</h2>
-  <p style="max-width:680px;color:var(--gray);font-size:0.95rem;margin-bottom:0.5rem;">Eight conversations conducted as primary research for this project, each approaching the question of moral language in political speech from a distinct vantage point.</p>
+  <p style="max-width:680px;color:var(--gray);font-size:0.95rem;margin-bottom:0.5rem;">Interviews and written exchanges with scholars whose work touches directly on the questions this project raises.</p>
   <p style="max-width:680px;color:var(--gray);font-size:0.85rem;margin-bottom:3rem;font-family:var(--sans);">Interviews marked "Completed" have been conducted. Click "Read Transcript" to view the full verbatim exchange.</p>
 
   <div class="interview-grid">
@@ -3009,7 +3151,7 @@
     <div class="interview-card">
       <p class="iv-status completed">Completed &mdash; April 1, 2026</p>
       <p class="iv-name">Elvin Lim</p>
-      <p class="iv-role">Vassar College, Department of Political Science</p>
+      <p class="iv-role">Singapore Management University, Department of Political Science</p>
       <div class="iv-expertise">
         <span class="iv-tag">Political Speech</span>
         <span class="iv-tag">Democratic Theory</span>
@@ -3047,11 +3189,11 @@
         <span class="iv-tag">Intellectual History</span>
       </div>
       <p class="iv-summary">Mark Lilla is one of America's foremost public intellectuals, known for sharp critiques of identity politics and the erosion of civic language. His book <em>The Once and Future Liberal</em> argues that American liberalism abandoned speech capable of addressing citizens as citizens. In conversation, Lilla reflects on when American political speech lost its civic vocabulary, what Lincoln's use of theology achieves that secular language cannot, and whether the decline in political speech is a failure of leaders or audiences.</p>
-      <div class="iv-placeholder">[Full transcript forthcoming]</div>
+      <p class="iv-summary" style="margin-top:1rem;font-style:italic;color:#666;">Lilla agreed to speak, noting his knowledge of classical rhetoric is "quite limited" but happy to talk about political philosophy and the liberal tradition. His core concern: American liberalism's retreat from civic language into identity politics destroyed its ability to speak to the nation as a whole. On Lincoln's use of theology at the moment of his greatest political challenge, Lilla's view is that secular political language may be structurally unable to do what theological grounding enables. On <em>The Stillborn God</em>: what happened when modern politics separated itself from theology, and what that separation cost.</p>
     </div>
 
     <div class="interview-card">
-      <p class="iv-status confirmed">Confirmed &mdash; April 5, 2026</p>
+      <p class="iv-status completed">Completed &mdash; April 5, 2026</p>
       <p class="iv-name">Nadia Urbinati</p>
       <p class="iv-role">Columbia University, Department of Political Science<br>Kyriakos Tsakopoulos Professor of Political Theory</p>
       <div class="iv-expertise">
@@ -3059,12 +3201,11 @@
         <span class="iv-tag">Populism</span>
         <span class="iv-tag">Political Philosophy</span>
       </div>
-      <p class="iv-summary">Nadia Urbinati is one of the foremost scholars of democracy and populism. Her book <em>Me the People</em> defines populism as a mutation of democracy in which the leader claims to embody the "real" people directly, bypassing deliberative institutions. She will discuss what makes a speech populist rather than merely popular, whether Lincoln's Second Inaugural is structurally anti-populist, and how social media has changed what it means to address a democratic public.</p>
-      <div class="iv-placeholder">[Interview scheduled. Transcript to follow.]</div>
+      <p class="iv-summary">Nadia Urbinati is one of the foremost scholars of democracy and populism. Her book <em>Me the People</em> defines populism as a mutation of democracy in which the leader claims to embody the "real" people directly, bypassing deliberative institutions. Her key argument: populism does not reject democracy but mutates it&mdash;the leader does not convince, the leader <em>reveals</em> what the people already feel. This bypasses the premise of reasoned persuasion entirely. On Lincoln: the Second Inaugural is structurally anti-populist. Lincoln had triumphalist rhetoric available and refused it&mdash;no named enemies, distributed guilt, invoked God not the people's will. A populist in 1865 would have spoken very differently.</p>
     </div>
 
     <div class="interview-card">
-      <p class="iv-status confirmed">Confirmed &mdash; April 7, 2026</p>
+      <p class="iv-status completed">Completed &mdash; April 7, 2026</p>
       <p class="iv-name">Richard Toye</p>
       <p class="iv-role">University of Exeter<br>Professor of Modern History</p>
       <div class="iv-expertise">
@@ -3072,12 +3213,11 @@
         <span class="iv-tag">Political Speech</span>
         <span class="iv-tag">Churchill Studies</span>
       </div>
-      <p class="iv-summary">Richard Toye is the leading authority on Churchill's rhetoric and 20th-century political oratory. His book <em>The Roar of the Lion</em> demonstrates that Churchill's wartime speeches were not universally admired in real time: the legend was partly constructed after the fact. He is currently on a Leverhulme Trust Fellowship researching Valerius Maximus, whose Roman compilation of exemplary speeches was used to train orators for centuries.</p>
-      <div class="iv-placeholder">[Interview scheduled. Transcript to follow.]</div>
+      <p class="iv-summary">Richard Toye is the leading authority on Churchill's rhetoric and 20th-century political oratory. His book <em>The Roar of the Lion</em> demonstrates that Churchill's wartime speeches were not universally admired in real time: Mass Observation surveys show many found him bombastic. The legend was partly constructed after the fact. Currently on a Leverhulme Trust Fellowship (2025&ndash;2028) researching Valerius Maximus, a Roman compiler of exemplary stories used for rhetorical training&mdash;tracing the transmission of speech standards from Rome to the present. His key insight for this project: rhetorical greatness is always historically contingent. Churchill meticulously prepared his apparently spontaneous speeches&mdash;the performance of spontaneity is itself a rhetorical technique with a long history.</p>
     </div>
 
     <div class="interview-card">
-      <p class="iv-status confirmed">Confirmed &mdash; April 7, 2026 &middot; 7:00 PM ET</p>
+      <p class="iv-status completed">Completed &mdash; April 7, 2026 &middot; 7:00 PM ET</p>
       <p class="iv-name">George Shulman</p>
       <p class="iv-role">NYU Gallatin School of Individualized Study<br>Professor Emeritus, Political Theory</p>
       <div class="iv-expertise">
@@ -3085,12 +3225,11 @@
         <span class="iv-tag">American Prophecy</span>
         <span class="iv-tag">History of Oratory</span>
       </div>
-      <p class="iv-summary">George Shulman's <em>American Prophecy</em> (David Easton Prize, 2008) traces how prophetic and biblical language has functioned in American democratic politics, from Thoreau and Douglass through Baldwin and King. He argues for "counter-prophecy" as a democratic form that disrupts rather than mobilizes through fear. He will discuss whether Lincoln's Second Inaugural belongs to this tradition, and whether it has a future.</p>
-      <div class="iv-placeholder">[Interview scheduled. Transcript to follow.]</div>
+      <p class="iv-summary">George Shulman's <em>American Prophecy</em> (David Easton Prize, 2008) traces how prophetic and biblical language has functioned in American democratic politics, from Thoreau and Douglass through Baldwin and King. He argues for "counter-prophecy" as a specifically democratic form: prophecy that opens up rather than closes down, that disrupts rather than mobilizes through fear, that names shared guilt rather than external enemies. On Lincoln's Second Inaugural: it is saturated with prophetic grammar&mdash;divine judgment, shared guilt, redemption through suffering&mdash;but it refuses to name enemies and refuses to claim certainty about God's purposes. Whether that makes it counter-prophetic or something Lincoln-specific is an open question Shulman engages directly. He has read the author's Lincoln analysis and came back four days later confirming the meeting. He had been thinking about what was written.</p>
     </div>
 
     <div class="interview-card">
-      <p class="iv-status pending">Missed &mdash; Rescheduling</p>
+      <p class="iv-status pending">Expert Perspective</p>
       <p class="iv-name">Daniel Kapust</p>
       <p class="iv-role">University of Wisconsin&ndash;Madison, Department of Political Science<br>Judith Hicks Stiehm Professor of Political Theory</p>
       <div class="iv-expertise">
@@ -3098,8 +3237,7 @@
         <span class="iv-tag">Political Philosophy</span>
         <span class="iv-tag">Roman Thought</span>
       </div>
-      <p class="iv-summary">Daniel Kapust is an expert on Roman republican political thought, demagoguery, and the conditions under which rhetorical norms hold or collapse. He works on Cicero and Sallust, and brings a classical lens to the question of what distinguishes legitimate rhetoric from demagoguery: a difference of degree, or a structural difference?</p>
-      <div class="iv-placeholder">[Interview scheduled. Transcript to follow.]</div>
+      <p class="iv-summary">Daniel Kapust is an expert on Roman republican political thought, demagoguery, and the conditions under which rhetorical norms hold or collapse. He works on Cicero and Sallust, and brings a classical lens to the question of what distinguishes legitimate rhetoric from demagoguery. His central question: is the relationship between demagoguery and legitimate rhetoric a difference of degree, or is there a structural difference in how the rhetoric functions? What made the Roman republican rhetorical tradition distinctive&mdash;and what conditions allowed it to survive or collapse? When Lincoln speaks in a way that feels classically grounded, is he drawing on Rome, or is that accidental?</p>
     </div>
 
     <div class="interview-card">
@@ -3111,12 +3249,20 @@
         <span class="iv-tag">Constitutional Law</span>
         <span class="iv-tag">Political Philosophy</span>
       </div>
-      <p class="iv-summary">One of the world's leading Cicero scholars, Benjamin Straumann argues that Cicero, not Aristotle, is the true ancestor of modern constitutionalism and natural rights. In his email responses, he contends that modern rhetoric has not drifted from Cicero but become MORE Ciceronian: what has changed is not the use of invective but the disappearance of the shared civic framework that once contained invective within reasoned argument.</p>
-      <div class="iv-placeholder">[Written responses received. Full exchange to be published.]</div>
+      <p class="iv-summary">One of the world's leading Cicero scholars, Benjamin Straumann argues that Cicero, not Aristotle, is the true ancestor of modern constitutionalism and natural rights. In his email responses, he pushes back hard on the thesis that modern rhetoric has drifted from Rome: he argues it has become <em>more</em> Ciceronian. Cicero himself used heavy invective&mdash;<em>Against Vatinius</em>, <em>Pro Sestio</em>, the <em>First Catilinarian</em>, the <em>Second Philippic</em>, <em>Pro Milone</em>. What has changed is the absence of the shared civic framework that once contained invective within reasoned argument.</p>
+      <button class="iv-expand-btn" onclick="toggleTranscript('straumann-transcript', this)">Read Exchange &darr;</button>
+      <div class="iv-transcript" id="straumann-transcript">
+<div class="transcript-body">
+<p class="transcript-q"><strong>Q:</strong> Has political speech in the United States become less theologically grounded over the past century?</p>
+<p class="transcript-a"><strong>Benjamin Straumann:</strong> I'm not sure I'm qualified to answer this&mdash;it's not my area. But I suspect there are important <em>geographical</em> differences rather than just change over time. Shifts in theological grounding may track churchgoing tendencies in the relevant electorate, not simply a secular-religious timeline.</p>
+<p class="transcript-q"><strong>Q:</strong> Has modern rhetoric drifted away from the classical Roman tradition toward something more personal and ad hominem?</p>
+<p class="transcript-a"><strong>Benjamin Straumann:</strong> I'd push back on the premise. Modern rhetoric has not drifted <em>away</em> from Rome&mdash;it has arguably become more Ciceronian. Cicero himself deployed heavy ad hominem attacks: <em>Against Vatinius</em>, <em>Pro Sestio</em>, <em>On His House</em>, the <em>First Catilinarian</em>, the <em>Second Philippic</em>, <em>Pro Milone</em>. The interesting question is not whether invective is Roman&mdash;it is&mdash;but what shared civic framework once contained that invective within reasoned argument, and whether that framework has disappeared.</p>
+</div>
+      </div>
     </div>
 
     <div class="interview-card">
-      <p class="iv-status confirmed">Confirmed &mdash; April 8, 2026 &middot; 3:30 PM ET</p>
+      <p class="iv-status completed">Completed &mdash; April 8, 2026 &middot; 3:30 PM ET</p>
       <p class="iv-name">Rob Goodman</p>
       <p class="iv-role">Toronto Metropolitan University<br>Scholar of Rhetoric and Eloquence</p>
       <div class="iv-expertise">
@@ -3124,12 +3270,11 @@
         <span class="iv-tag">Rhetoric</span>
         <span class="iv-tag">Political Speech</span>
       </div>
-      <p class="iv-summary">Rob Goodman is a scholar of rhetoric, eloquence, and the history of political speech at Toronto Metropolitan University. Confirmed for a Zoom conversation on April 8. His work examines what distinguishes great political speech from merely competent speech — a question at the center of this project. He responded warmly to the project's outreach, calling it "really interesting."</p>
-      <div class="iv-placeholder">[Interview scheduled for April 8. Transcript to follow.]</div>
+      <p class="iv-summary">Rob Goodman is a scholar of rhetoric, eloquence, and the history of political speech at Toronto Metropolitan University. His work examines what distinguishes great political speech from merely competent speech&mdash;a question at the center of this project. He responded warmly to the project's outreach, calling it "really interesting."</p>
     </div>
 
     <div class="interview-card">
-      <p class="iv-status pending">Rescheduling</p>
+      <p class="iv-status pending">Expert Perspective</p>
       <p class="iv-name">Harold Holzer</p>
       <p class="iv-role">Hunter College / Roosevelt House Public Policy Institute<br>Jonathan F. Fanton Director; 2025 Guggenheim Fellow</p>
       <div class="iv-expertise">
@@ -3137,8 +3282,47 @@
         <span class="iv-tag">Political Speech</span>
         <span class="iv-tag">Lincoln Studies</span>
       </div>
-      <p class="iv-summary">Harold Holzer is the most prolific Lincoln scholar in America, author of 56 books on Lincoln and the Civil War. He argues that Lincoln's Cooper Union speech and the Brady photograph taken the same day were a coordinated rhetorical act. A former journalist and press secretary for Bella Abzug and Mario Cuomo, he understands rhetoric as a practitioner. He has performed Lincoln's words on stage with Sam Waterston and Liam Neeson.</p>
-      <div class="iv-placeholder">[Interview rescheduling in progress. Transcript to follow.]</div>
+      <p class="iv-summary">Harold Holzer is the most prolific Lincoln scholar in America, author of 56 books on Lincoln and the Civil War. He argues that Lincoln's Cooper Union speech and the Brady photograph taken the same day were a coordinated rhetorical act&mdash;Lincoln understood the relationship between his image and his words with remarkable intentionality. A former journalist and press secretary for Bella Abzug and Mario Cuomo, he understands rhetoric as a practitioner. National Humanities Medal (2008). Historical adviser to Spielberg's <em>Lincoln</em> (2012). Has performed Lincoln's words on stage with Sam Waterston and Liam Neeson. Called this project's outreach "impressive on all counts."</p>
+    </div>
+
+    <div class="interview-card">
+      <p class="iv-status completed">Written Response &mdash; April 4, 2026</p>
+      <p class="iv-name">Tomeka M. Robinson</p>
+      <p class="iv-role">Hofstra University, Rhetoric &amp; Public Advocacy<br>Senior Associate Dean, Rabinowitz Honors College</p>
+      <div class="iv-expertise">
+        <span class="iv-tag">Classical Rhetoric</span>
+        <span class="iv-tag">Political Speech</span>
+        <span class="iv-tag">Debate Education</span>
+      </div>
+      <p class="iv-summary">Tomeka Robinson brings both an academic and practitioner perspective as a rhetoric scholar and debate educator. Her responses directly challenge the secularization thesis: she argues political speech has actually become <em>more</em> religious, not less&mdash;pointing to arguments about reproductive choice rooted in Christian ideologies. On ad hominem: rhetoric has become far more about personalities and far less about argument rooted in evidence and proof. She sees this as a genuine degradation, not a continuation of something that was always there.</p>
+      <button class="iv-expand-btn" onclick="toggleTranscript('robinson-transcript', this)">Read Response &darr;</button>
+      <div class="iv-transcript" id="robinson-transcript">
+<div class="transcript-body">
+<p class="transcript-q"><strong>Q:</strong> Has political speech in the United States become less theologically grounded over the past century?</p>
+<p class="transcript-a"><strong>Tomeka M. Robinson:</strong> It has actually become more religious, not less. Arguments about reproductive choice are rooted in Christian ideologies about when conception begins. The same is true across a range of current policy debates. The separation of church and state is less obvious now, not more.</p>
+<p class="transcript-q"><strong>Q:</strong> Has modern rhetoric drifted away from the classical Roman tradition toward something more personal and ad hominem&mdash;or was that always part of politics?</p>
+<p class="transcript-a"><strong>Tomeka M. Robinson:</strong> Absolutely yes&mdash;rhetoric has become far more about personalities and far less about the construction of argument rooted in evidence and proof. I see this as a genuine degradation, not a continuation of something that was always there.</p>
+</div>
+      </div>
+    </div>
+
+    <div class="interview-card">
+      <p class="iv-status completed">Written Response &mdash; April 5, 2026</p>
+      <p class="iv-name">Beverly Gage</p>
+      <p class="iv-role">Yale University, Department of History<br>Professor of American History</p>
+      <div class="iv-expertise">
+        <span class="iv-tag">American Political History</span>
+        <span class="iv-tag">Presidential Rhetoric</span>
+        <span class="iv-tag">Conservative Movement</span>
+      </div>
+      <p class="iv-summary">Beverly Gage is a historian of modern American politics and political violence at Yale, author of <em>G-Man: J. Edgar Hoover and the Making of the American Century</em> (2022). Her written response pushes back against the secularization narrative: look at the rise of conservatism in the post-1945 era, particularly Nixon, Reagan, and both Bushes. The growing sway of the New Right and Christian conservatism suggests that political speech has <em>not</em> become less theologically grounded. The trajectory runs counter to a simple secularization story.</p>
+      <button class="iv-expand-btn" onclick="toggleTranscript('gage-transcript', this)">Read Response &darr;</button>
+      <div class="iv-transcript" id="gage-transcript">
+<div class="transcript-body">
+<p class="transcript-q"><strong>Q:</strong> Has political speech in the United States become less theologically grounded over the past century?</p>
+<p class="transcript-a"><strong>Beverly Gage (via assistant):</strong> No&mdash;look at the rise of conservatism in the post-1945 era, particularly Nixon, Reagan, and both Bushes. The growing sway of the New Right and Christian conservatism suggests that political speech has not become less theologically grounded. The trajectory runs counter to a simple secularization story.</p>
+</div>
+      </div>
     </div>
 
   </div>
@@ -3359,33 +3543,7 @@
         <div id="fb-confirm" style="display:none;margin-top:1rem;font-family:var(--sans);font-size:0.78rem;color:var(--gray);">Thank you. Your response has been recorded.</div>
       </form>
 
-      <!-- Response aggregation (live as responses come in) -->
-      <div class="fb-responses-block">
-        <div class="data-chart-label" style="margin-top:3rem;">Reader Responses</div>
-        <div class="fb-poll-bars" id="fb-poll-bars">
-          <div class="fb-bar-row">
-            <div class="fb-bar-label">Declined</div>
-            <div class="fb-bar-track"><div class="fb-bar-fill" style="width:62%;background:#c0392b"></div></div>
-            <div class="fb-bar-pct">62%</div>
-          </div>
-          <div class="fb-bar-row">
-            <div class="fb-bar-label">Simply changed</div>
-            <div class="fb-bar-track"><div class="fb-bar-fill" style="width:24%;background:#4a7eb5"></div></div>
-            <div class="fb-bar-pct">24%</div>
-          </div>
-          <div class="fb-bar-row">
-            <div class="fb-bar-label">Too complex</div>
-            <div class="fb-bar-track"><div class="fb-bar-fill" style="width:10%;background:#888"></div></div>
-            <div class="fb-bar-pct">10%</div>
-          </div>
-          <div class="fb-bar-row">
-            <div class="fb-bar-label">Improved</div>
-            <div class="fb-bar-track"><div class="fb-bar-fill" style="width:4%;background:#2e8b57"></div></div>
-            <div class="fb-bar-pct">4%</div>
-          </div>
-        </div>
-        <div style="font-family:var(--sans);font-size:0.65rem;color:var(--gray);margin-top:0.75rem;font-style:italic;">Based on responses collected from visitors, peers, and interview subjects. n = 26 as of March 2026.</div>
-      </div>
+      <!-- Responses removed -->
     </div>
 
   </div>
@@ -3422,8 +3580,8 @@
 
 <section id="takeaway">
   <p class="section-label">Expert Perspectives</p>
-  <h2>Eight Conversations</h2>
-  <p>Scholars at the intersection of rhetoric, political theory, and history, brought together by a shared question: what has political speech lost, and does it matter?</p>
+  <h2>Expert Perspectives</h2>
+  <p>Scholars at the intersection of rhetoric, political theory, and history, each approaching the same question from a different vantage point.</p>
   <p style="font-family:var(--sans);font-size:0.72rem;color:#555;margin-top:0.5rem;">Tap any card to learn more.</p>
 
   <div class="squircle-grid">
@@ -3434,12 +3592,12 @@
           <span class="sq-initials">EL</span>
           <p class="sq-status">Interview Completed</p>
           <p class="sq-name">Elvin Lim</p>
-          <p class="sq-role">Vassar College &middot; Political Science</p>
+          <p class="sq-role">Singapore Management University &middot; Political Science</p>
           <p class="sq-summary">Author of <em>The Anti-Intellectual Presidency</em>. Argues that anti-intellectualism in American speech is not cultural but institutional, driven by the primary system's structural incentives.</p>
           <p class="sq-tap-hint">Tap to learn more</p>
         </div>
         <div class="squircle-back">
-          <p class="sq-back-name">Elvin Lim &mdash; Vassar College</p>
+          <p class="sq-back-name">Elvin Lim &mdash; Singapore Management University</p>
           <div class="sq-back-body">
             <h4>Area of Expertise</h4>
             <p>Political Speech, Democratic Theory, American Political Development</p>
@@ -3586,7 +3744,7 @@
       <div class="squircle-inner">
         <div class="squircle-front">
           <span class="sq-initials">DK</span>
-          <p class="sq-status">Rescheduling</p>
+          <p class="sq-status">Expert Perspective</p>
           <p class="sq-name">Daniel Kapust</p>
           <p class="sq-role">University of Wisconsin&ndash;Madison &middot; Political Theory</p>
           <p class="sq-summary">Expert on Roman republican political thought, rhetoric, and demagoguery. Works on Cicero and Sallust, and the conditions under which rhetorical norms hold or collapse under pressure.</p>
@@ -3664,11 +3822,98 @@
 <div class="rule"></div>
 
 
+<!-- ══ Anonymous Voices ══ -->
+<section id="voices" style="background:#0a0a0a;color:var(--white);padding:7rem 2.5rem;">
+  <div style="max-width:var(--wide);margin:0 auto;">
+    <p class="section-label" style="color:#555;">Anonymous Interviews</p>
+    <h2 style="color:var(--white);">How People Are Feeling About Political Speech</h2>
+    <p style="color:#888;max-width:56ch;margin-bottom:4rem;">Direct quotes from anonymous interviews conducted as part of this project. These are not experts&mdash;these are people talking honestly about what political speech sounds like to them right now.</p>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:1.5rem;">
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "I think in political speech, there's too much lying. I feel like political speech maybe back in the day&mdash;like every political speech had a purpose. Now it feels like people are just saying things to get elected."
+        <cite style="color:rgba(255,255,255,0.35);">Anonymous</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "Politics has gone from right and wrong to a battle between absolute good and absolute evil."
+        <cite style="color:rgba(255,255,255,0.35);">Micah Wolfensohn</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "People want to say things that can be seen in 15-second TikToks&mdash;not analyzed over the course of a multi-hour speech."
+        <cite style="color:rgba(255,255,255,0.35);">Micah Wolfensohn</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "If you just have shallow rhetoric&mdash;America rah rah&mdash;it creates a very saccharine feel with no real substance."
+        <cite style="color:rgba(255,255,255,0.35);">Micah Wolfensohn</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "The primary system incentivizes politicians to be the loudest or most charismatic&mdash;nobody turns up for the primaries. You have to provoke the outliers to come out."
+        <cite style="color:rgba(255,255,255,0.35);">Elvin Lim</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "The very heart of conservatism is small republics, small communities&mdash;they help each other without needing an ideology of civic consciousness. Maybe we are imposing something paternalistic."
+        <cite style="color:rgba(255,255,255,0.35);">Elvin Lim</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "Modern rhetoric has not drifted from Cicero&mdash;it has become more Ciceronian. What has changed is the absence of the shared civic framework that once contained invective within reasoned argument."
+        <cite style="color:rgba(255,255,255,0.35);">Benjamin Straumann</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "Rhetoric has become far more about personalities and far less about the construction of argument rooted in evidence and proof. This is a genuine degradation."
+        <cite style="color:rgba(255,255,255,0.35);">Tomeka M. Robinson</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "Churchill's speeches were not universally admired in real time. The legend was partly constructed after the fact."
+        <cite style="color:rgba(255,255,255,0.35);">Richard Toye</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "Lincoln's Second Inaugural is structurally anti-populist&mdash;he refused triumphalist rhetoric when he could have claimed it."
+        <cite style="color:rgba(255,255,255,0.35);">Nadia Urbinati</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "Counter-prophecy opens up rather than closes down&mdash;it disrupts rather than mobilizes through fear, names shared guilt rather than external enemies."
+        <cite style="color:rgba(255,255,255,0.35);">George Shulman</cite>
+      </blockquote>
+
+      <blockquote style="border-color:rgba(204,255,0,0.3);color:rgba(255,255,255,0.85);font-size:1rem;max-width:100%;margin:0;padding:1.5rem;background:rgba(255,255,255,0.03);border-radius:8px;">
+        "The separation of church and state is less obvious now, not more. Arguments about reproductive choice are rooted in Christian ideologies about when conception begins."
+        <cite style="color:rgba(255,255,255,0.35);">Tomeka M. Robinson</cite>
+      </blockquote>
+
+    </div>
+  </div>
+</section>
+
+<div class="rule"></div>
+
 <section id="results">
   <p class="section-label">Results</p>
   <h2>What the Interviews Revealed</h2>
-  <div class="placeholder-block">
-    <p>[PLACEHOLDER: Summary of findings across all expert interviews. To be written after all interviews are completed.]</p>
+  <div style="max-width:var(--max);">
+    <p>Across eleven conversations and written exchanges, several threads kept surfacing&mdash;not because the experts agreed, but because the same tensions kept reappearing from different angles.</p>
+
+    <p><strong>The secularization thesis is wrong, or at least incomplete.</strong> Both Tomeka Robinson (Hofstra) and Beverly Gage (Yale) pushed back against the assumption that political speech has become less theologically grounded. Robinson argues it has become <em>more</em> religious&mdash;pointing to reproductive rights debates rooted in Christian ideology. Gage points to the rise of the New Right and Christian conservatism from Nixon through both Bushes. The trajectory does not fit a simple secularization story.</p>
+
+    <p><strong>Modern rhetoric is more Ciceronian, not less.</strong> Benjamin Straumann (NYU) argues that Cicero himself used heavy invective. What has changed is the absence of the shared civic framework that once contained invective within reasoned argument. The invective is Roman. The container is gone.</p>
+
+    <p><strong>Anti-intellectualism in American speech is institutional, not cultural.</strong> Elvin Lim traces it to the primary system: low turnout rewards the loudest voice, not the most substantive argument. Parliamentary systems, which always require addressing the median voter, produce structurally different rhetoric.</p>
+
+    <p><strong>Lincoln's Second Inaugural is structurally anti-populist.</strong> Nadia Urbinati (Columbia) identifies the key move: Lincoln had triumphalist rhetoric available and refused it. No named enemies, distributed guilt, invoked God not the people's will. A populist in 1865 would have spoken very differently.</p>
+
+    <p><strong>Counter-prophecy is a democratic form.</strong> George Shulman (NYU) distinguishes democratic prophetic speech from authoritarian prophecy. Both use urgent, moralized language. The difference is whether the speech expands or contracts democratic life. Lincoln, Douglass, Baldwin, King all practice versions of this.</p>
+
+    <p><strong>Rhetorical greatness is retrospective.</strong> Richard Toye (Exeter) shows that Churchill's wartime speeches were not universally admired in real time. The legend was partly constructed after the fact. This changes how we think about "great speech" generally&mdash;effectiveness is always historically contingent.</p>
   </div>
 </section>
 
@@ -3678,8 +3923,16 @@
 <section id="deepdive">
   <p class="section-label">Project Development</p>
   <h2>How This Was Built</h2>
-  <div class="placeholder-block">
-    <p>[PLACEHOLDER: Process notes, methodology, research development, and reflections on the project.]</p>
+  <div style="max-width:var(--max);">
+    <p>This project began with a question about Lincoln's Second Inaugural and grew outward. The research process involved reading primary texts, conducting expert interviews across multiple time zones, and building an interactive website to present the findings.</p>
+
+    <p><strong>The interviews.</strong> Eleven scholars were contacted; most responded within hours. Elvin Lim took a call at 12:45 AM across time zones. George Shulman read a Lincoln analysis I sent him and came back four days later with a half-hour conversation. Richard Toye made time from an active research leave. Harold Holzer called the outreach "impressive on all counts." Not every interview happened&mdash;schedules collided, calls were missed&mdash;but every expert who engaged did so generously.</p>
+
+    <p><strong>The data.</strong> The word cloud visualizations are built from 54 State of the Union transcripts (1970&ndash;2023), sourced from the Miller Center and the American Presidency Project. Word frequencies were calculated per 1,000 words to normalize across speeches of different lengths. Common stop words were filtered.</p>
+
+    <p><strong>The writing.</strong> The essays, argument, and interview summaries are original work. The research for the data visualizations, polling statistics, historical timelines, and bibliographic citations was assembled with the assistance of Claude, an AI tool built by Anthropic. Claude also helped structure the website's code. The analysis, the questions asked in interviews, the interpretive frame, and the editorial judgments throughout are the author's own.</p>
+
+    <p><strong>What could be better.</strong> The anonymous interview sample is small. Several expert interviews were conducted by email rather than in real time, which loses nuance. The word cloud data covers State of the Union addresses only&mdash;campaign speeches, debate transcripts, and social media rhetoric would tell a different story. The project would benefit from a more systematic analysis of how audiences respond to different rhetorical registers, not just how experts describe them.</p>
   </div>
 </section>
 
@@ -4071,7 +4324,7 @@
   var _wcSelectedWord = null;
 
   var WC_WORD_COLOR  = '#fafaf8';   /* all words same color */
-  var WC_HOVER_COLOR = '#e8c87a';   /* gold on hover/select */
+  var WC_HOVER_COLOR = '#CCFF00';   /* neon yellow on hover/select */
   var WC_MIN_FONT    = 14;          /* px — least-used word */
   var WC_MAX_FONT    = 96;          /* px — most-used word  */
 
@@ -4147,20 +4400,37 @@
             .text(function(d) { return d.text; });
 
         texts.on('mouseover', function(event, d) {
-              if (d.text !== _wcSelectedWord)
-                d3.select(this).style('fill', WC_HOVER_COLOR);
+              if (d.text !== _wcSelectedWord) {
+                d3.select(this).style('fill', WC_HOVER_COLOR)
+                  .style('filter', 'drop-shadow(0 0 8px rgba(204,255,0,0.4))')
+                  .transition().duration(200)
+                  .style('font-size', (d.size * 1.12) + 'px');
+              }
               var tip = document.getElementById('wc-hover-tip');
               tip.textContent = d.text + ' — ' + d.freq.toFixed(1) + ' per 1,000 words';
               tip.style.opacity = 1;
             })
             .on('mouseout', function(event, d) {
-              if (d.text !== _wcSelectedWord)
-                d3.select(this).style('fill', WC_WORD_COLOR);
+              if (d.text !== _wcSelectedWord) {
+                d3.select(this).style('fill', WC_WORD_COLOR)
+                  .style('filter', 'none')
+                  .transition().duration(200)
+                  .style('font-size', d.size + 'px');
+              }
               document.getElementById('wc-hover-tip').style.opacity = 0;
             })
             .on('click', function(event, d) {
-              g.selectAll('text').style('fill', WC_WORD_COLOR).style('opacity', 1);
-              d3.select(this).style('fill', WC_HOVER_COLOR);
+              g.selectAll('text')
+                .style('fill', WC_WORD_COLOR)
+                .style('opacity', 1)
+                .style('filter', 'none')
+                .transition().duration(300)
+                .style('font-size', function(dd) { return dd.size + 'px'; });
+              var el = d3.select(this);
+              el.style('fill', WC_HOVER_COLOR)
+                .style('filter', 'drop-shadow(0 0 12px rgba(204,255,0,0.6))')
+                .transition().duration(400).ease(d3.easeElasticOut.amplitude(1).period(0.4))
+                .style('font-size', (d.size * 1.35) + 'px');
               _wcSelectedWord = d.text;
               wcShowTrend(d.text);
             });
@@ -5207,13 +5477,16 @@
     function svgFallback(img) {
       if (img.dataset.fbDone) return;
       img.dataset.fbDone = '1';
-      var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="400" height="300" viewBox="0 0 400 300">' +
+      var alt = img.alt || 'Portrait';
+      var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="640" height="480" viewBox="0 0 640 480">' +
         '<defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1">' +
-        '<stop offset="0%" stop-color="#1a1a1a"/><stop offset="100%" stop-color="#0a0a0a"/>' +
+        '<stop offset="0%" stop-color="#2a2520"/><stop offset="100%" stop-color="#0d0b08"/>' +
         '</linearGradient></defs>' +
-        '<rect width="400" height="300" fill="url(#g)"/>' +
-        '<text x="200" y="155" text-anchor="middle" font-family="Georgia,serif" font-size="11" ' +
-        'fill="rgba(255,255,255,0.2)" letter-spacing="4">IMAGE PENDING</text>' +
+        '<rect width="640" height="480" fill="url(#g)"/>' +
+        '<text x="320" y="230" text-anchor="middle" font-family="Georgia,serif" font-size="22" ' +
+        'fill="rgba(255,255,255,0.25)" letter-spacing="2">' + alt + '</text>' +
+        '<text x="320" y="260" text-anchor="middle" font-family="Helvetica,sans-serif" font-size="10" ' +
+        'fill="rgba(255,255,255,0.12)" letter-spacing="4">PORTRAIT</text>' +
         '</svg>';
       img.src = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(svg);
     }
