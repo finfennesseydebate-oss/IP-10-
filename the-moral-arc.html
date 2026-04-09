@@ -1766,6 +1766,12 @@
     height: 320px;
     perspective: 800px;
     cursor: pointer;
+    transition: height 0.5s cubic-bezier(0.4,0,0.2,1), z-index 0s;
+    z-index: 1;
+  }
+  .squircle-card.flipped {
+    height: 560px;
+    z-index: 20;
   }
   .squircle-inner {
     position: relative;
@@ -1849,16 +1855,16 @@
     margin-bottom: 1rem;
   }
   .sq-back-body {
-    font-size: 0.8rem;
-    color: rgba(255,255,255,0.7);
-    line-height: 1.7;
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.9);
+    line-height: 1.75;
   }
   .sq-back-body h4 {
     font-family: var(--sans);
-    font-size: 0.62rem;
+    font-size: 0.65rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: rgba(255,255,255,0.35);
+    color: rgba(255,244,79,0.6);
     margin: 1.2rem 0 0.4rem;
     font-weight: 600;
   }
@@ -2299,15 +2305,15 @@
     .qs-wrap {
       background: var(--black);
       overflow: hidden;
-      padding: 2.8rem 0;
+      padding: 3.8rem 0;
       border-top: 1px solid #1a1a1a;
       border-bottom: 1px solid #1a1a1a;
     }
     .qs-track {
       display: flex;
       width: max-content;
-      animation: qsScroll 100s linear infinite;
-      gap: 5rem;
+      animation: qsScroll 90s linear infinite;
+      gap: 4rem;
       align-items: center;
     }
     .qs-track:hover { animation-play-state: paused; }
@@ -2318,17 +2324,17 @@
     .qs-item {
       font-family: var(--serif);
       font-style: italic;
-      color: rgba(255,255,255,0.5);
-      font-size: 1rem;
+      color: rgba(255,255,255,0.72);
+      font-size: 1.15rem;
       white-space: nowrap;
       flex-shrink: 0;
     }
     .qs-attr {
       font-family: var(--sans);
-      font-size: 0.6rem;
+      font-size: 0.65rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.22);
+      color: rgba(255,244,79,0.4);
       margin-left: 1.2rem;
       font-style: normal;
     }
@@ -2707,24 +2713,9 @@
         <span class="mlk-collage-caption">Memphis, April 3, 1968</span>
       </div>
       <div class="mlk-collage-cell">
-        <img src="mlk_lectern.jpg" alt="MLK at lectern 1964" loading="lazy" />
-        <div class="mlk-collage-overlay"></div>
-        <span class="mlk-collage-caption">At the lectern, 1964</span>
-      </div>
-      <div class="mlk-collage-cell">
-        <img src="mlk4.jpg" alt="MLK with President Johnson" loading="lazy" />
-        <div class="mlk-collage-overlay"></div>
-        <span class="mlk-collage-caption">With President Johnson, 1966</span>
-      </div>
-      <div class="mlk-collage-cell">
         <img src="mlk_march.jpg" alt="MLK at the March on Washington" loading="lazy" />
         <div class="mlk-collage-overlay"></div>
         <span class="mlk-collage-caption">March on Washington, 1963</span>
-      </div>
-      <div class="mlk-collage-cell">
-        <img src="mlk5.jpg" alt="MLK press conference" loading="lazy" />
-        <div class="mlk-collage-overlay"></div>
-        <span class="mlk-collage-caption">Press conference, 1964</span>
       </div>
     </div>
 
@@ -2830,6 +2821,15 @@
       <p class="ds-line-marker">Closing</p>
       <span class="ds-text">"With malice toward none, with charity for all, with firmness in the right as God gives us to see the right, let us strive on to finish the work we are in, to bind up the nation's wounds."</span>
       <p class="ds-annotation">"As God gives us to see the right"&mdash;not "as we know the right." Lincoln qualifies his own moral certainty even in the moment of triumph. The humility is structural, not decorative. It is the rhetorical foundation for reconciliation rather than vengeance.</p>
+    </div>
+
+    <div class="ds-text-block" style="border-left-color:rgba(255,244,79,0.2);margin-top:2.5rem;">
+      <p class="ds-line-marker" style="color:rgba(255,244,79,0.4);">Interview Analysis &mdash; Expert Evening</p>
+      <p class="ds-annotation"><strong style="color:rgba(255,255,255,0.8);">Mr. Pennoyer on the Second Inaugural:</strong> "It reads like a sermon&mdash;very short. Right behind him, by the way, when he's giving it, is John Wilkes Booth. You can see the one picture of Lincoln delivering it&mdash;he's right behind him watching it. The North is angry at the South, and the South is defeated and fearful. And he gives the most amazing speech saying, 'With malice toward none, with charity for all, let us do right as God gives us the right.' It's a call for peace&mdash;very Lincolnian. Very much informed by his humility and his religious uncertainty, which is one of my favorite qualities of his&mdash;that he is not at all confident that he knows what God wants."</p>
+      <p class="ds-annotation" style="margin-top:1rem;"><strong style="color:rgba(255,255,255,0.8);">Mr. Pennoyer on the arc from Lincoln to now:</strong> "Take Lincoln saying 'With malice toward none, with charity towards all.' Then track that towards some contemporary politicians&mdash;'You may not have voted for me, but I'm still going to be your representative' is one voice. Another voice is, 'If you didn't vote for me, I'm going to seek retribution. You're my enemy.' That arc tells the story in terms of regression&mdash;less charity, less kindness, less openness, more certainty."</p>
+      <p class="ds-annotation" style="margin-top:1rem;"><strong style="color:rgba(255,255,255,0.8);">Micah Wolfensohn on the decline of aspirational rhetoric:</strong> "It's like JFK&mdash;'ask not what your country can do for you.' It's been reduced from something quite grandiose to people saying it to check political boxes. They're saying it for the sake of saying it, not for the actual belief in it. If you just have that shallow level of rhetoric, it creates this very saccharine feel&mdash;yeah, we're America, but there's no real substance to back it up."</p>
+      <p class="ds-annotation" style="margin-top:1rem;"><strong style="color:rgba(255,255,255,0.8);">Mr. Klebnikov on the loss of respect in political speech:</strong> "People used to be more respectful. They respected the humanity of the people they disagreed with, and so the debates were much more civilized, much more polite, and much more substantive, because you can waste a whole debate being personal, or you could discuss the issues."</p>
+      <p class="ds-annotation" style="margin-top:1rem;"><strong style="color:rgba(255,255,255,0.8);">Micah Wolfensohn on dividing vs. uniting speeches:</strong> "It's the same rhetorical structure: we have a goal, we have strength, and we have something in our way. The difference is what the opposition is. Compare Trump's convention speech&mdash;'the Democrats are terrorists who want to kill us'&mdash;to JFK saying 'we want to go to the moon, and we have limitations by the technology of the time, but together we can achieve this.' Same structure, different opposition, different tone entirely."</p>
     </div>
   </div>
 
@@ -3007,10 +3007,7 @@
         <img src="img_mlk_lorraine.jpg" alt="Lorraine Motel Memphis" loading="lazy" />
         <p class="detail-img-caption">Lorraine Motel · Memphis, April 4, 1968</p>
       </div>
-      <div class="detail-img-wrap">
-        <img src="mlk4.jpg" alt="MLK with President Johnson" loading="lazy" />
-        <p class="detail-img-caption">With President Johnson · 1966</p>
-      </div>
+      <!-- removed: no matching photo available -->
     </div>
     <div class="detail-timeline-wrap">
       <p class="detail-timeline-label">Timeline</p>
@@ -3897,18 +3894,15 @@
     transition: color 0.2s, border-color 0.2s;
   }
   .vb-expanded-close:hover { color: #fff; border-color: rgba(255,255,255,0.4); }
-  @keyframes vbFloat {
-    0%,100% { transform: translateY(0); }
-    50% { transform: translateY(-14px); }
-  }
+
 </style>
 <section id="voices">
   <div style="max-width:var(--wide);margin:0 auto;">
     <p class="section-label" style="color:#555;">What People Are Saying</p>
     <h2 style="color:var(--white);">Voices</h2>
-    <p style="color:#888;max-width:56ch;margin-bottom:2rem;">Click any bubble to read the full quote.</p>
+    <p style="color:#888;max-width:56ch;margin-bottom:1rem;">Click any bubble to read the full quote.</p>
   </div>
-  <div class="vb-field" id="vb-field"></div>
+  <canvas id="vb-canvas" style="width:100%;height:700px;display:block;cursor:pointer;"></canvas>
   <div class="vb-expanded" id="vb-overlay" onclick="closeVoiceBubble()">
     <button class="vb-expanded-close" onclick="closeVoiceBubble()">Close</button>
     <div class="vb-expanded-inner" onclick="event.stopPropagation()">
@@ -3919,58 +3913,164 @@
 </section>
 <script>
 (function() {
-  var quotes = [
-    {t:"I think in political speech, there's too much lying. Every political speech used to have a purpose. Now it feels like people are just saying things to get elected.", a:"Anonymous", s:"Too much lying"},
+  var baseQuotes = [
+    {t:"I think in political speech, there's too much lying. Now it feels like people are just saying things to get elected.", a:"Anonymous", s:"Too much lying"},
     {t:"Politics has gone from right and wrong to a battle between absolute good and absolute evil.", a:"Micah Wolfensohn", s:"Good vs. evil"},
-    {t:"People want to say things that can be seen in 15-second TikToks — not analyzed over the course of a multi-hour speech.", a:"Micah Wolfensohn", s:"15-second TikToks"},
-    {t:"If you just have shallow rhetoric — America rah rah — it creates a very saccharine feel with no real substance.", a:"Micah Wolfensohn", s:"Saccharine rhetoric"},
-    {t:"The primary system incentivizes politicians to be the loudest or most charismatic — nobody turns up for the primaries.", a:"Elvin Lim", s:"Be the loudest"},
-    {t:"The very heart of conservatism is small republics, small communities — they help each other without needing an ideology of civic consciousness.", a:"Elvin Lim", s:"Small communities"},
-    {t:"Modern rhetoric has not drifted from Cicero — it has become more Ciceronian. What has changed is the absence of the shared civic framework.", a:"Benjamin Straumann", s:"More Ciceronian"},
-    {t:"Rhetoric has become far more about personalities and far less about the construction of argument rooted in evidence and proof.", a:"Tomeka M. Robinson", s:"Personalities over proof"},
-    {t:"Churchill's speeches were not universally admired in real time. The legend was partly constructed after the fact.", a:"Richard Toye", s:"Legend after the fact"},
-    {t:"Lincoln's Second Inaugural is structurally anti-populist — he refused triumphalist rhetoric when he could have claimed it.", a:"Nadia Urbinati", s:"Anti-populist Lincoln"},
-    {t:"Counter-prophecy opens up rather than closes down — it disrupts rather than mobilizes through fear.", a:"George Shulman", s:"Counter-prophecy"},
-    {t:"The separation of church and state is less obvious now, not more.", a:"Tomeka M. Robinson", s:"Church & state"}
+    {t:"People want to say things that can be seen in 15-second TikToks — not analyzed over the course of a multi-hour speech.", a:"Micah Wolfensohn", s:"TikToks"},
+    {t:"If you just have shallow rhetoric — America rah rah — it creates a very saccharine feel with no real substance.", a:"Micah Wolfensohn", s:"Saccharine"},
+    {t:"The primary system incentivizes politicians to be the loudest or most charismatic.", a:"Elvin Lim", s:"Be the loudest"},
+    {t:"The very heart of conservatism is small republics, small communities.", a:"Elvin Lim", s:"Small communities"},
+    {t:"Modern rhetoric has not drifted from Cicero — it has become more Ciceronian.", a:"Benjamin Straumann", s:"More Ciceronian"},
+    {t:"Rhetoric has become far more about personalities and far less about evidence and proof.", a:"Tomeka M. Robinson", s:"Personalities"},
+    {t:"Churchill's speeches were not universally admired in real time.", a:"Richard Toye", s:"Legend"},
+    {t:"Lincoln refused triumphalist rhetoric when he could have claimed it.", a:"Nadia Urbinati", s:"Anti-populist"},
+    {t:"Counter-prophecy opens up rather than closes down.", a:"George Shulman", s:"Counter-prophecy"},
+    {t:"The separation of church and state is less obvious now, not more.", a:"Tomeka M. Robinson", s:"Church & state"},
+    {t:"Once the president broke the accepted norms, it's very easy to say — what he did, why can't I do it?", a:"Mr. Klebnikov", s:"Broken norms"},
+    {t:"He was an outsider, a populist outsider, and they loved the idea that he was telling people how it was.", a:"Mr. Klebnikov", s:"Populist outsider"},
+    {t:"People used to respect the humanity of the people they disagreed with.", a:"Mr. Klebnikov", s:"Respect"},
+    {t:"The currency of a political speech is how it's going to get chopped up into a five-second tweet.", a:"Mr. Pennoyer", s:"Soundbite"},
+    {t:"Lincoln is not at all confident that he knows what God wants — that's one of my favorite qualities.", a:"Mr. Pennoyer", s:"Uncertainty"},
+    {t:"Christianity never excludes — it's forgiving and loving and helping.", a:"Mr. Pennoyer", s:"Forgiveness"},
+    {t:"Politicians have learned to be so aware of the gaffe.", a:"Mr. Pennoyer", s:"The gaffe"},
+    {t:"A gentle politics feels like a needed voice.", a:"Mr. Pennoyer", s:"Gentle politics"},
+    {t:"I suspect we haven't hit bottom. I think it gets worse before it gets better.", a:"Mr. Klebnikov", s:"Not yet bottom"},
+    {t:"They're saying it for the sake of saying it, not for the actual belief in it.", a:"Micah Wolfensohn", s:"Empty words"},
+    {t:"Social media is a big component. The 24 hour news cycle is a big component.", a:"Micah Wolfensohn", s:"24hr cycle"},
+    {t:"Deep down we all want to be kind. You identify with the hero, not the villain.", a:"Mr. Pennoyer", s:"Be kind"},
   ];
 
-  var field = document.getElementById('vb-field');
-  if (!field) return;
+  var colors = [
+    '#FF6B6B','#4ECDC4','#FFF44F','#FF8C42','#A78BFA',
+    '#34D399','#F472B6','#60A5FA','#FBBF24','#F87171',
+    '#6EE7B7','#C084FC','#FB923C','#38BDF8','#FCD34D',
+    '#E879F9','#2DD4BF','#FB7185','#818CF8','#FDBA74',
+    '#86EFAC','#F0ABFC','#FDA4AF','#7DD3FC',
+  ];
 
-  /* Layout: 4 columns x 3 rows, with stagger */
-  var cols = 4, rows = 3;
-  var sizes = [130, 115, 140, 120, 135, 110, 125, 145, 118, 132, 128, 122];
+  var canvas = document.getElementById('vb-canvas');
+  if (!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var W, H, dpr;
 
-  quotes.forEach(function(q, i) {
-    var col = i % cols;
-    var row = Math.floor(i / cols);
-    var size = sizes[i] || 120;
-    var xPct = (col + 0.5) / cols * 100;
-    var yBase = row * 195 + 30;
-    /* Stagger odd columns down */
-    var yOff = (col % 2 === 1) ? 50 : 0;
+  function resize() {
+    dpr = window.devicePixelRatio || 1;
+    W = canvas.clientWidth;
+    H = canvas.clientHeight;
+    canvas.width = W * dpr;
+    canvas.height = H * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  resize();
+  window.addEventListener('resize', resize);
 
-    var bubble = document.createElement('div');
-    bubble.className = 'vb-bubble';
-    bubble.style.width = size + 'px';
-    bubble.style.height = size + 'px';
-    bubble.style.left = 'calc(' + xPct + '% - ' + (size/2) + 'px)';
-    bubble.style.top = (yBase + yOff) + 'px';
-    bubble.style.animation = 'vbFloat ' + (4 + Math.random() * 3).toFixed(1) + 's ease-in-out infinite';
-    bubble.style.animationDelay = (-Math.random() * 5).toFixed(1) + 's';
-
-    var label = document.createElement('span');
-    label.className = 'vb-label';
-    label.textContent = q.s;
-    bubble.appendChild(label);
-
-    bubble.addEventListener('click', function() {
-      document.getElementById('vb-quote-text').textContent = '\u201C' + q.t + '\u201D';
-      document.getElementById('vb-quote-attr').textContent = '\u2014 ' + q.a;
-      document.getElementById('vb-overlay').classList.add('open');
+  /* Create bubbles */
+  var bubbles = [];
+  baseQuotes.forEach(function(q, i) {
+    var r = 28 + Math.random() * 32;
+    bubbles.push({
+      x: Math.random() * W,
+      y: Math.random() * H,
+      r: r,
+      vx: (Math.random() - 0.5) * 3.5,
+      vy: (Math.random() - 0.5) * 3.5,
+      color: colors[i % colors.length],
+      q: q,
+      idx: i
     });
+  });
 
-    field.appendChild(bubble);
+  /* Physics loop */
+  function step() {
+    ctx.clearRect(0, 0, W, H);
+
+    for (var i = 0; i < bubbles.length; i++) {
+      var b = bubbles[i];
+      b.x += b.vx;
+      b.y += b.vy;
+
+      /* Wall bounce */
+      if (b.x - b.r < 0) { b.x = b.r; b.vx = Math.abs(b.vx); }
+      if (b.x + b.r > W) { b.x = W - b.r; b.vx = -Math.abs(b.vx); }
+      if (b.y - b.r < 0) { b.y = b.r; b.vy = Math.abs(b.vy); }
+      if (b.y + b.r > H) { b.y = H - b.r; b.vy = -Math.abs(b.vy); }
+
+      /* Bubble-bubble collisions */
+      for (var j = i + 1; j < bubbles.length; j++) {
+        var b2 = bubbles[j];
+        var dx = b2.x - b.x;
+        var dy = b2.y - b.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        var minDist = b.r + b2.r;
+        if (dist < minDist && dist > 0) {
+          var nx = dx / dist, ny = dy / dist;
+          var overlap = minDist - dist;
+          b.x -= nx * overlap * 0.5;
+          b.y -= ny * overlap * 0.5;
+          b2.x += nx * overlap * 0.5;
+          b2.y += ny * overlap * 0.5;
+          /* Swap velocities along collision axis */
+          var dvx = b.vx - b2.vx;
+          var dvy = b.vy - b2.vy;
+          var dot = dvx * nx + dvy * ny;
+          b.vx -= dot * nx * 0.85;
+          b.vy -= dot * ny * 0.85;
+          b2.vx += dot * nx * 0.85;
+          b2.vy += dot * ny * 0.85;
+        }
+      }
+
+      /* Draw bubble */
+      ctx.beginPath();
+      ctx.arc(b.x, b.y, b.r, 0, Math.PI * 2);
+      ctx.fillStyle = b.color + '22';
+      ctx.fill();
+      ctx.strokeStyle = b.color + '66';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      /* Glossy highlight */
+      ctx.beginPath();
+      ctx.arc(b.x - b.r * 0.25, b.y - b.r * 0.25, b.r * 0.35, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(255,255,255,0.08)';
+      ctx.fill();
+
+      /* Label text */
+      ctx.fillStyle = b.color + 'CC';
+      ctx.font = '600 ' + Math.max(8, b.r * 0.28) + 'px Helvetica Neue, Arial, sans-serif';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      ctx.fillText(b.q.s, b.x, b.y);
+    }
+
+    requestAnimationFrame(step);
+  }
+  step();
+
+  /* Click detection */
+  canvas.addEventListener('click', function(e) {
+    var rect = canvas.getBoundingClientRect();
+    var mx = e.clientX - rect.left;
+    var my = e.clientY - rect.top;
+    for (var i = bubbles.length - 1; i >= 0; i--) {
+      var b = bubbles[i];
+      var dx = mx - b.x, dy = my - b.y;
+      if (dx * dx + dy * dy <= b.r * b.r) {
+        document.getElementById('vb-quote-text').textContent = '\u201C' + b.q.t + '\u201D';
+        document.getElementById('vb-quote-attr').textContent = '\u2014 ' + b.q.a;
+        document.getElementById('vb-overlay').classList.add('open');
+        /* Explosion effect on click */
+        for (var j = 0; j < bubbles.length; j++) {
+          if (j === i) continue;
+          var ddx = bubbles[j].x - b.x;
+          var ddy = bubbles[j].y - b.y;
+          var d = Math.sqrt(ddx * ddx + ddy * ddy) || 1;
+          bubbles[j].vx += (ddx / d) * 8;
+          bubbles[j].vy += (ddy / d) * 8;
+        }
+        break;
+      }
+    }
   });
 })();
 
